@@ -1,0 +1,14 @@
+package com.sunbeam.services;
+
+import java.util.Optional;
+
+import com.sunbeam.entities.Admin;
+import com.sunbeam.entities.Customer;
+
+public interface CustomerServices {
+
+	Customer findByEmail(String email);
+	Customer save(Customer cust);
+
+	
+}
