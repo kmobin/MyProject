@@ -1,4 +1,6 @@
 import { useState } from "react"
+import axios from "axios"
+import { url } from "../common/constants";
 const Signup=()=>{
     const[id,setId]=useState('');
     const [fname, setFirstName] = useState('')
@@ -13,14 +15,36 @@ const Signup=()=>{
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [dob, setDob] = useState('')
-    const [security,setSecurity]=useState('')
   
     const signupUser = () => {
-      console.log(`first name = ${fname}`)
-      console.log(`last name = ${lname}`)
-      console.log(`email = ${email}`)
-      console.log(`password = ${password}`)
-      console.log(`city = ${city}`)
+    //  console.log(`first name = ${fname}`)
+    //   console.log(`last name = ${lname}`)
+    //   console.log(`email = ${email}`)
+    //   console.log(`password = ${password}`)
+    //   console.log(`city = ${city}`)
+
+      const data=new FormData();
+      data.append('fname',fname)
+      data.append('mname',mname)
+      data.append('lname',lname)
+      data.append('add1',add1)
+      data.append('add2',add2)
+      data.append('city',city)
+      data.append('state',state)
+      data.append('country',country)
+      data.append('mobile',mobile)
+      data.append('email',email)
+      data.append('password',password)
+      data.append('dob',dob)
+
+      axios.post(url + '/customer/register ', data).then((response) => {
+        const result = response.data
+        if (result!=null) {
+          console.log("succses")
+        } else {
+          alert('error while adding customer')
+        }
+      })
     }
   
     return (
@@ -154,17 +178,6 @@ const Signup=()=>{
             onChange={(event) => {
               // updating the state with user entered value
               setDob(event.target.value)
-            }}
-            className="form-control"
-            type="text"
-          />
-        </div>
-        <div className="mb-3">
-          <label>Security</label>
-          <input
-            onChange={(event) => {
-              // updating the state with user entered value
-              setSecurity(event.target.value)
             }}
             className="form-control"
             type="text"
