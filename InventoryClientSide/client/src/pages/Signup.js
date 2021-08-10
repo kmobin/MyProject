@@ -23,36 +23,22 @@ const Signup=()=>{
     //   console.log(`password = ${password}`)
     //   console.log(`city = ${city}`)
 
-      const data=new FormData();
-      data.append('fname',fname)
-      data.append('mname',mname)
-      data.append('lname',lname)
-      data.append('add1',add1)
-      data.append('add2',add2)
-      data.append('city',city)
-      data.append('state',state)
-      data.append('country',country)
-      data.append('mobile',mobile)
-      data.append('email',email)
-      data.append('password',password)
-      data.append('dob',dob)
+    const data={fname,mname,lname,add1,add2,city,state,country,mobile,email,password,dob};
+      
 
       axios.post(url + '/customer/register ', data).then((response) => {
         const result = response.data
-        if (result!=null) {
-          console.log("succses")
-        } else {
-          alert('error while adding customer')
-        }
+        console.log(result);
+        alert("Signup successful");
       })
     }
   
     return (
-      <div className="container">
+      <div>
         <h1>Signup</h1>
   
         <div className="mb-3">
-          <label>First Name</label>
+          <label htmlFor="">First Name</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -63,7 +49,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Middle Name</label>
+          <label htmlFor="">Middle Name</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -74,7 +60,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Last Name</label>
+          <label htmlFor="">Last Name</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -85,7 +71,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Address 1</label>
+          <label htmlFor="">Address 1</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -96,7 +82,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Address 2</label>
+          <label htmlFor="">Address 2</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -107,7 +93,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>City</label>
+          <label htmlFor="">City</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -118,7 +104,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>State</label>
+          <label htmlFor="">State</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -129,7 +115,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Country</label>
+          <label htmlFor="">Country</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -140,7 +126,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Mobile</label>
+          <label htmlFor="">Mobile</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -151,7 +137,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Email</label>
+          <label htmlFor="">Email</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -162,7 +148,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Password</label>
+          <label htmlFor="">Password</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
@@ -173,7 +159,7 @@ const Signup=()=>{
           />
         </div>
         <div className="mb-3">
-          <label>Date of Birth</label>
+          <label htmlFor="">Date of Birth</label>
           <input
             onChange={(event) => {
               // updating the state with user entered value
