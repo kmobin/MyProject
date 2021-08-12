@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sunbeam.entities.Admin;
 import com.sunbeam.entities.Customer;
 import com.sunbeam.model.Crediential;
+import com.sunbeam.model.Response;
 import com.sunbeam.services.AdminService;
 //import com.sunbeam.model.Credintial;
 import com.sunbeam.services.CustomerServices;
@@ -83,20 +84,20 @@ public class CustomerController {
 	
 	
 	@RequestMapping("/admin")
-	public ResponseEntity<Admin> admin(HttpSession session){
+	public ResponseEntity<?> admin(HttpSession session){
 		
 	
 		Admin admin = (Admin)session.getAttribute("admin");
 		System.out.println(admin);
 		
-		return ResponseEntity.ok(admin);
+		return Response.success(admin);
 	}
 	
 	@PostMapping("/customer/register")
-	public ResponseEntity<Customer> save(@RequestBody Customer cust){
+	public ResponseEntity<?> save(@RequestBody Customer cust){
 		
 		Customer c = custService.save(cust);
-		return  ResponseEntity.ok(c);
+		return  Response.success(c);
 	}
 	
 	
