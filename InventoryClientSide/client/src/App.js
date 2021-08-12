@@ -4,6 +4,8 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
+import customer from './pages/customer';
+import admin from './pages/admin';
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
           <Route path="/home" component={Home} />
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
+          <Route path="/customer" component={customer} />
+          <Route path="/admin" component={admin} />
         </Switch>
       </div>
     </BrowserRouter>

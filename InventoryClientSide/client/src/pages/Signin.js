@@ -1,10 +1,11 @@
 import axios from "axios"
 import { useState } from "react"
+import { useHistory } from 'react-router-dom'
 import { url } from "../common/constants";
 const Signin=()=>{
     const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  const history = useHistory()
   const signinUser = () => {
     if (email.length === 0) {
       alert('please enter email')
@@ -21,9 +22,13 @@ const Signin=()=>{
         console.log(result);
         if(response.data){
           alert("Invalid Login");
+        }else if(email=='mobin@gmail.com' && password=='mobin'){
+          console.log(email);
+            history.push('/admin')
         }else{
           console.log(email);
           alert("Successfully Login");
+          history.push('/customer')
         }
       })
     }
