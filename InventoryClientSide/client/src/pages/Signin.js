@@ -1,4 +1,6 @@
+import axios from "axios"
 import { useState } from "react"
+import { url } from "../common/constants";
 const Signin=()=>{
     const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -9,8 +11,21 @@ const Signin=()=>{
     } else if (password.length === 0) {
       alert('please enter password')
     } else {
-      console.log(`email = ${email}`)
-      console.log(`password = ${password}`)
+      // console.log(`email = ${email}`)
+      // console.log(`password = ${password}`)
+
+      const data={email,password};
+
+      axios.post(url + '/login ', data).then((response) => {
+        const result = response.data
+        console.log(result);
+        if(response.data){
+          alert("Invalid Login");
+        }else{
+          console.log(email);
+          alert("Successfully Login");
+        }
+      })
     }
   }
 
