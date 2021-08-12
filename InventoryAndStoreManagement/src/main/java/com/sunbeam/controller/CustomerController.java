@@ -90,14 +90,14 @@ public class CustomerController {
 		Admin admin = (Admin)session.getAttribute("admin");
 		System.out.println(admin);
 		
-		return Response.success(admin);
+		return ResponseEntity.ok(admin);
 	}
 	
 	@PostMapping("/customer/register")
 	public ResponseEntity<?> save(@RequestBody Customer cust){
 		
 		Customer c = custService.save(cust);
-		return  Response.success(c);
+		return  ResponseEntity.ok(c);
 	}
 	
 	
