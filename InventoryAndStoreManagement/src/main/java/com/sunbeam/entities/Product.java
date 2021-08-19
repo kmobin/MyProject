@@ -2,160 +2,196 @@ package com.sunbeam.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name="product")
 @Entity
 public class Product {
-	@Id
-	int prodId;
-	@Column(name="prodName")
-	String name;
-	String prodMainGrp;
-	String prodSubGrp;
-	String prodType;
-	String prodBrand;
-	double currStock;
-	double minStock;
-	double maxStock;
-	double reorderLevel;
-	double reorderQuantity;
-	double sellPrice;
-	String alert;
 	
-	public Product() {
-		
-	}
+@GeneratedValue(strategy = GenerationType.IDENTITY)	
+@Id	
+private int pid;
+private String pname;
+private String pmaingrp;
+private String psubgrp;
+private String ptype;
+private String pbrand;
+private double currentstock;
+private double minstock;
+private double maxstock;
+private double reorderlevel;
+private double reorderquantity;
+private double sellprice;
+private String alert;
+	
 
-	public Product(int prodId, String prodName, String prodMainGrp, String prodSubGrp, String prodType,
-			String prodBrand, double currStock, double minStock, double maxStock, double reorderLevel,
-			double reorderQuantity, double sellPrice, String alert) {
-		this.prodId = prodId;
-		this.name = name;
-		this.prodMainGrp = prodMainGrp;
-		this.prodSubGrp = prodSubGrp;
-		this.prodType = prodType;
-		this.prodBrand = prodBrand;
-		this.currStock = currStock;
-		this.minStock = minStock;
-		this.maxStock = maxStock;
-		this.reorderLevel = reorderLevel;
-		this.reorderQuantity = reorderQuantity;
-		this.sellPrice = sellPrice;
+     public Product() {
+    	 
+     }
+
+
+	public Product(int pid, String pname, String pmaingrp, String psubgrp, String ptype, String pbrand,
+			double currentstock, double minstock, double maxstock, double reorderlevel, double reorderquantity,
+			double sellprice, String alert) {
+	
+		this.pid = pid;
+		this.pname = pname;
+		this.pmaingrp = pmaingrp;
+		this.psubgrp = psubgrp;
+		this.ptype = ptype;
+		this.pbrand = pbrand;
+		this.currentstock = currentstock;
+		this.minstock = minstock;
+		this.maxstock = maxstock;
+		this.reorderlevel = reorderlevel;
+		this.reorderquantity = reorderquantity;
+		this.sellprice = sellprice;
 		this.alert = alert;
 	}
 
-	public int getProdId() {
-		return prodId;
+
+	public int getPid() {
+		return pid;
 	}
 
-	public void setProdId(int prodId) {
-		this.prodId = prodId;
+
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 
-	public String getProdName() {
-		return name;
+
+	public String getPname() {
+		return pname;
 	}
 
-	public void setProdName(String prodName) {
-		this.name = prodName;
+
+	public void setPname(String pname) {
+		this.pname = pname;
 	}
 
-	public String getProdMainGrp() {
-		return prodMainGrp;
+
+	public String getPmaingrp() {
+		return pmaingrp;
 	}
 
-	public void setProdMainGrp(String prodMainGrp) {
-		this.prodMainGrp = prodMainGrp;
+
+	public void setPmaingrp(String pmaingrp) {
+		this.pmaingrp = pmaingrp;
 	}
 
-	public String getProdSubGrp() {
-		return prodSubGrp;
+
+	public String getPsubgrp() {
+		return psubgrp;
 	}
 
-	public void setProdSubGrp(String prodSubGrp) {
-		this.prodSubGrp = prodSubGrp;
+
+	public void setPsubgrp(String psubgrp) {
+		this.psubgrp = psubgrp;
 	}
 
-	public String getProdType() {
-		return prodType;
+
+	public String getPtype() {
+		return ptype;
 	}
 
-	public void setProdType(String prodType) {
-		this.prodType = prodType;
+
+	public void setPtype(String ptype) {
+		this.ptype = ptype;
 	}
 
-	public String getProdBrand() {
-		return prodBrand;
+
+	public String getPbrand() {
+		return pbrand;
 	}
 
-	public void setProdBrand(String prodBrand) {
-		this.prodBrand = prodBrand;
+
+	public void setPbrand(String pbrand) {
+		this.pbrand = pbrand;
 	}
 
-	public double getCurrStock() {
-		return currStock;
+
+	public double getCurrentstock() {
+		return currentstock;
 	}
 
-	public void setCurrStock(double currStock) {
-		this.currStock = currStock;
+
+	public void setCurrentstock(double currentstock) {
+		this.currentstock = currentstock;
 	}
 
-	public double getMinStock() {
-		return minStock;
+
+	public double getMinstock() {
+		return minstock;
 	}
 
-	public void setMinStock(double minStock) {
-		this.minStock = minStock;
+
+	public void setMinstock(double minstock) {
+		this.minstock = minstock;
 	}
 
-	public double getMaxStock() {
-		return maxStock;
+
+	public double getMaxstock() {
+		return maxstock;
 	}
 
-	public void setMaxStock(double maxStock) {
-		this.maxStock = maxStock;
+
+	public void setMaxstock(double maxstock) {
+		this.maxstock = maxstock;
 	}
 
-	public double getReorderLevel() {
-		return reorderLevel;
+
+	public double getReorderlevel() {
+		return reorderlevel;
 	}
 
-	public void setReorderLevel(double reorderLevel) {
-		this.reorderLevel = reorderLevel;
+
+	public void setReorderlevel(double reorderlevel) {
+		this.reorderlevel = reorderlevel;
 	}
 
-	public double getReorderQuantity() {
-		return reorderQuantity;
+
+	public double getReorderquantity() {
+		return reorderquantity;
 	}
 
-	public void setReorderQuantity(double reorderQuantity) {
-		this.reorderQuantity = reorderQuantity;
+
+	public void setReorderquantity(double reorderquantity) {
+		this.reorderquantity = reorderquantity;
 	}
 
-	public double getSellPrice() {
-		return sellPrice;
+
+	public double getSellprice() {
+		return sellprice;
 	}
 
-	public void setSellPrice(double sellPrice) {
-		this.sellPrice = sellPrice;
+
+	public void setSellprice(double sellprice) {
+		this.sellprice = sellprice;
 	}
+
 
 	public String getAlert() {
 		return alert;
 	}
 
+
 	public void setAlert(String alert) {
 		this.alert = alert;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Product [prodId=" + prodId + ", prodName=" + name + ", prodMainGrp=" + prodMainGrp + ", prodSubGrp="
-				+ prodSubGrp + ", prodType=" + prodType + ", prodBrand=" + prodBrand + ", currStock=" + currStock
-				+ ", minStock=" + minStock + ", maxStock=" + maxStock + ", reorderLevel=" + reorderLevel
-				+ ", reorderQuantity=" + reorderQuantity + ", sellPrice=" + sellPrice + ", alert=" + alert + "]";
+		return "Product [pid=" + pid + ", pname=" + pname + ", pmaingrp=" + pmaingrp + ", psubgrp=" + psubgrp
+				+ ", ptype=" + ptype + ", pbrand=" + pbrand + ", currentstock=" + currentstock + ", minstock="
+				+ minstock + ", maxstock=" + maxstock + ", reorderlevel=" + reorderlevel + ", reorderquantity="
+				+ reorderquantity + ", sellprice=" + sellprice + ", alert=" + alert + "]";
 	}
+
+     
+     
 	
 }

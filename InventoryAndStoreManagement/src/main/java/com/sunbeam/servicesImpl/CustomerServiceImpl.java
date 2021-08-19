@@ -1,4 +1,4 @@
-package com.sunbeam.services;
+package com.sunbeam.servicesImpl;
 
 import java.util.Optional;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sunbeam.daos.CustomerDao;
 import com.sunbeam.entities.Customer;
+import com.sunbeam.services.CustomerServices;
 
 @Service
 public class CustomerServiceImpl implements CustomerServices{
