@@ -1,5 +1,6 @@
 package com.sunbeam.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,7 +10,8 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	int prodId;
-	String prodName;
+	@Column(name="prodName")
+	String name;
 	String prodMainGrp;
 	String prodSubGrp;
 	String prodType;
@@ -30,7 +32,7 @@ public class Product {
 			String prodBrand, double currStock, double minStock, double maxStock, double reorderLevel,
 			double reorderQuantity, double sellPrice, String alert) {
 		this.prodId = prodId;
-		this.prodName = prodName;
+		this.name = name;
 		this.prodMainGrp = prodMainGrp;
 		this.prodSubGrp = prodSubGrp;
 		this.prodType = prodType;
@@ -53,11 +55,11 @@ public class Product {
 	}
 
 	public String getProdName() {
-		return prodName;
+		return name;
 	}
 
 	public void setProdName(String prodName) {
-		this.prodName = prodName;
+		this.name = prodName;
 	}
 
 	public String getProdMainGrp() {
@@ -150,7 +152,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [prodId=" + prodId + ", prodName=" + prodName + ", prodMainGrp=" + prodMainGrp + ", prodSubGrp="
+		return "Product [prodId=" + prodId + ", prodName=" + name + ", prodMainGrp=" + prodMainGrp + ", prodSubGrp="
 				+ prodSubGrp + ", prodType=" + prodType + ", prodBrand=" + prodBrand + ", currStock=" + currStock
 				+ ", minStock=" + minStock + ", maxStock=" + maxStock + ", reorderLevel=" + reorderLevel
 				+ ", reorderQuantity=" + reorderQuantity + ", sellPrice=" + sellPrice + ", alert=" + alert + "]";
