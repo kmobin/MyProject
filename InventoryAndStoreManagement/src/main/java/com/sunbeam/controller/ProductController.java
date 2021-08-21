@@ -61,4 +61,10 @@ public class ProductController {
 		Product prod = prodService.save(p);
 		return ResponseEntity.ok(prod);
 	}
+	
+	@GetMapping("/all")
+	public ResponseEntity<List<Product>> findall(){
+		List<Product> prod = prodService.findall();
+		return ResponseEntity.ok(prod);
+	}
 }

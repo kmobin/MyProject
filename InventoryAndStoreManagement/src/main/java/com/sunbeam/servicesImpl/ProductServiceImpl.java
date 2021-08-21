@@ -40,6 +40,11 @@ public class ProductServiceImpl implements ProductService {
 		return prodDao.save(p);
 	}
 
+	@Override
+	public List<Product> findall() {
+		return prodDao.findAll();
+	}
+
 	
 	
 

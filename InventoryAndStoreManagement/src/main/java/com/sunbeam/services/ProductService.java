@@ -10,4 +10,5 @@ public interface ProductService {
 	List<Product> findByPsubgrp(String psubgrp);
 	Product findByPname(String pname);
 	Product save(Product p);
+	List<Product> findall();
 }
