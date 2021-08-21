@@ -7,14 +7,20 @@ const Product=()=>{
 const [products,setProducts]=useState([])
 
 useEffect(() => {
-    console.log(`Artists component got loaded`)
+    console.log(`Product component got loaded`)
     getProducts()
-  }, [])
+  }, []);
 
   const getProducts = () => {
     axios.get(url + '/product/all').then((response) => {
       const result = response.data
-      setProducts(result.data)
+      if(response.data){
+        alert('error while loading list of product') 
+      }else{
+        setProducts(result.data);
+        console.log(result);
+      }
+      
     })
   }
 
@@ -22,7 +28,7 @@ useEffect(() => {
         <div>
         <center><h2 className="page-title">Product Info</h2></center>
         <Link to="/add-product">
-        <a className="btn btn-success">Add Product</a>
+        <button className="btn btn-success">Add Product</button>
         </Link>
 
         <table className="table table-striped">

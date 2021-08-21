@@ -165,7 +165,7 @@ const Addproduct=()=>{
           </button>
 
           <Link to="/product">
-          <a className="btn btn-warning">Back</a>
+          <button className="btn btn-warning">Back</button>
           </Link>
         </div>
       </div>
