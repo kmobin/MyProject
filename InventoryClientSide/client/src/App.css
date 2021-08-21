@@ -40,3 +40,9 @@
 input.form-control {
   width: 35%;
 }
+
+a.btn.btn-warning {
+  margin-left: 15px;
+  background-color: coral;
+  border: 1px solid coral;
+}

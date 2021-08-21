@@ -6,7 +6,8 @@ import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import customer from './pages/customer';
 import admin from './pages/admin';
-
+import Product from './pages/Product';
+import Addproduct from './pages/Addproduct';
 function App() {
   return (
     <div>
@@ -55,6 +56,8 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/customer" component={customer} />
           <Route path="/admin" component={admin} />
+          <Route path="/product" component={Product} />
+          <Route path="/add-product" component={Addproduct} />
         </Switch>
       </div>
     </BrowserRouter>
