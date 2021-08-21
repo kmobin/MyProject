@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {  Link } from 'react-router-dom'
+import {  Link ,useHistory} from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
 const Addproduct=()=>{
@@ -16,6 +16,8 @@ const Addproduct=()=>{
     const[sellprice,setSellPrice]=useState('')
     const[alertmsg,setalert]=useState('')
 
+    const history = useHistory()
+
     const addproductToDB=()=>{
         const data={pname,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg};
 
@@ -23,6 +25,7 @@ const Addproduct=()=>{
             const result = response.data
             console.log(result);
             alert("Product Added successfully");
+            history.push('/product')
           })
     }
 

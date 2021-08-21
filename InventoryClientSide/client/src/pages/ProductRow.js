@@ -14,7 +14,7 @@ const ProductRow = ({ product }) => {
       <td>{product.reorderlevel}</td>
       <td>{product.reorderquantity}</td>
       <td>{product.sellprice}</td>
-      <td>{product.alertmsg}</td>
+      <td></td>
     </tr>
   )
 }

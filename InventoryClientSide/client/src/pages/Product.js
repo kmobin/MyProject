@@ -14,13 +14,8 @@ useEffect(() => {
   const getProducts = () => {
     axios.get(url + '/product/all').then((response) => {
       const result = response.data
-      if(response.data){
-        alert('error while loading list of product') 
-      }else{
-        setProducts(result.data);
+        setProducts(result);
         console.log(result);
-      }
-      
     })
   }
 
@@ -43,10 +38,9 @@ useEffect(() => {
             <th> Currentstock</th>
             <th> Maxstock</th>
             <th> Minstock</th>
-            <th> ReorderLevel</th>
-            <th> Reorderquantity</th>
+            <th> Reorder<br></br>Level</th>
+            <th> ReOrder<br></br>Quantity</th>
             <th> Sell Price</th>
-            <th> Alert </th>
           </tr>
         </thead>
         <tbody>
