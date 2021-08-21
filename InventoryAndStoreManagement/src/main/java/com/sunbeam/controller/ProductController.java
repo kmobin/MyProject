@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,14 +32,14 @@ public class ProductController {
 		return ResponseEntity.ok(product);
 	}
 	
-	@GetMapping("/maingrp")
+	@PostMapping("/maingrp")
 	public ResponseEntity<List<Product>> findByMainGrp(@RequestBody ProductModel prod){
 		
 		List<Product> product = prodService.findByPmaingrp(prod.getStr());
 		return ResponseEntity.ok(product);
 	}
 	
-	@GetMapping("/subgrp")
+	@PostMapping("/subgrp")
 	public ResponseEntity<List<Product>> findBySubGrp(@RequestBody ProductModel prod){
 		
 		List<Product> product = prodService.findByPsubgrp(prod.getStr());
@@ -48,11 +49,16 @@ public class ProductController {
 		return ResponseEntity.ok(product);
 	}
 	
-	@GetMapping("/pname")
+	@PostMapping("/pname")
 	public ResponseEntity<Product> findByName(@RequestBody ProductModel prod){
 		
 		Product product = prodService.findByPname(prod.getStr());
 		return ResponseEntity.ok(product);
 	}
 	
+	@PostMapping("/save")
+	public ResponseEntity<Product> save(@RequestBody Product p){
+		Product prod = prodService.save(p);
+		return ResponseEntity.ok(prod);
+	}
 }

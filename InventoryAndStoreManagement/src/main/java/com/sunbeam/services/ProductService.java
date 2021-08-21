@@ -9,4 +9,5 @@ public interface ProductService {
 	List<Product> findByPmaingrp(String pmaingrp);
 	List<Product> findByPsubgrp(String psubgrp);
 	Product findByPname(String pname);
+	Product save(Product p);
 }

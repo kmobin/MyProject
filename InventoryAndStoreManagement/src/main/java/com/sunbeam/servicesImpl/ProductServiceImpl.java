@@ -35,6 +35,11 @@ public class ProductServiceImpl implements ProductService {
 		return prodDao.findByPname(pname);
 	}
 
+	@Override
+	public Product save(Product p) {
+		return prodDao.save(p);
+	}
+
 	
 	
 
