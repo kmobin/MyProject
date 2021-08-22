@@ -7,7 +7,12 @@ const admin=()=>{
         <Link to="/product">
         <h3><a>Product Info</a></h3> 
         </Link>
+        <Link to="/vendor">
+        <h3><a>Vendor Info</a></h3>
+        </Link>
+
         </div>
+        
     )
 }
 
