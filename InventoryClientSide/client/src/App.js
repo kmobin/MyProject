@@ -9,6 +9,7 @@ import admin from './pages/admin';
 import Product from './pages/Product';
 import Addproduct from './pages/Addproduct';
 import Vendor from './pages/Vendor';
+import AddVendor from './pages/AddVendor';
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
           <Route path="/product" component={Product} />
           <Route path="/add-product" component={Addproduct} />
           <Route path="/vendor" component={Vendor} />
+          <Route path="/add-Vendor" component={AddVendor}/>
         </Switch>
       </div>
     </BrowserRouter>
