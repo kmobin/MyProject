@@ -26,6 +26,9 @@ const Vendor=()=>{
         <Link to="/add-Vendor">
         <button className="btn btn-success">Add Vendor</button>
         </Link>
+        <Link to="/search-Vendor">
+        <button className="btn btn-success">Search Vendor</button>
+        </Link>
 
         <table className="table table-striped">
         <thead>
