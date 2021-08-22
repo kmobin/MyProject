@@ -1,5 +1,7 @@
 package com.sunbeam.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,21 @@ public class VendorController {
 		
 	}
 	
+	@GetMapping("/vendor")
+	public ResponseEntity<List<Vendor>> findAll(){
+		List<Vendor>list=vendService.findAll();
+		return ResponseEntity.ok(list);
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
 

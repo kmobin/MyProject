@@ -1,5 +1,7 @@
 package com.sunbeam.servicesImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +24,14 @@ public class VendorServiceImpl implements VendorService{
 		
 		return vendDao.save(vendor);
 	}
+	
+
+
+	@Override
+	public List<Vendor> findAll() {
+		
+		return vendDao.findAll();
+	}
+
 
 }
