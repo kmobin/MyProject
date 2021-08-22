@@ -35,12 +35,13 @@ useEffect(() => {
             <th> SubGrp</th>
             <th> Type</th>
             <th> Brand</th>
-            <th> Currentstock</th>
+            <th> Current<br></br>stock </th>
             <th> Maxstock</th>
             <th> Minstock</th>
             <th> Reorder<br></br>Level</th>
             <th> ReOrder<br></br>Quantity</th>
             <th> Sell Price</th>
+            <th>Alert <br></br> Message</th>
           </tr>
         </thead>
         <tbody>

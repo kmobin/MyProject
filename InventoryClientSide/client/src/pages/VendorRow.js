@@ -10,7 +10,8 @@ const VendorRow = ({ vendor }) => {
             <td>{vendor.vstate}</td>
             <td>{vendor.vcountry}</td>
             <td>{vendor.vmobile}</td>
-            <td>{vendor.email}</td>
+            <td>{vendor.vemail}</td>
+            <td> </td>
         </tr>
 
     )

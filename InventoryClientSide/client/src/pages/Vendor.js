@@ -34,12 +34,13 @@ const Vendor=()=>{
             <th> Name</th>
             <th> LastName</th>
             <th> Address1</th>
-            <th> Address12</th>
+            <th> Address2</th>
             <th> City</th>
             <th> State</th>
             <th> Country</th>
             <th> Mobile</th>
             <th> Email</th>
+            <th></th>
            
           </tr>
         </thead>

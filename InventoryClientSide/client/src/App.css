@@ -46,3 +46,8 @@ a.btn.btn-warning {
   background-color: coral;
   border: 1px solid coral;
 }
+
+a {
+  display: inline-block;
+  margin-left: 25px;
+}
