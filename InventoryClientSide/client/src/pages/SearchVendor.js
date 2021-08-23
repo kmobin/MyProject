@@ -5,16 +5,18 @@ import { url } from "../common/constants"
 
 const SearchVendor=()=> {
     
-    const[vemail  ,setVendorEmail]=useState('')
-
     const history = useHistory()
 
     const SearchvendorToDB=()=>{
         
-      
+        // axios.post(url + '/vendor/{email} ', data).then((response) => {
+        //     const result = response.data
+        //     console.log(result);
+        //     history.get('/vendor')
+            
+        //   })
     }
-
-
+    
     return (
         <div>
             <h3 className="page-title">Search Vendor</h3>
@@ -32,7 +34,7 @@ const SearchVendor=()=> {
           <button onClick={SearchvendorToDB} className="btn btn-success">
             Search
           </button>
-          <Link to="/vendor/{email}">
+          <Link to="/vendor">
           <button className="btn btn-warning">Back</button>
           </Link>
         </div>
