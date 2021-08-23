@@ -14,7 +14,7 @@ const Addproduct=()=>{
     const[reorderlevel  ,setReorderLevel]=useState('')
     const[reorderquantity  ,setReorderQuantity]=useState('')
     const[sellprice,setSellPrice]=useState('')
-    const[alertmsg,setalert]=useState('')
+    const[alertmsg,setAlertmsg]=useState('')
 
     const history = useHistory()
 
@@ -155,7 +155,7 @@ const Addproduct=()=>{
           <label htmlFor="">Alert Message</label>
           <input
             onChange={(e) => {
-                setalert(e.target.value)
+                setAlertmsg(e.target.value)
             }}
             type="text"
             className="form-control"
