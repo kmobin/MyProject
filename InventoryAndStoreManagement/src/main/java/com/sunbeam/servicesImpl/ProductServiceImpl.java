@@ -4,16 +4,23 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.sunbeam.daos.ProductDao;
 import com.sunbeam.entities.Product;
 import com.sunbeam.services.ProductService;
+import com.sunbeam.utils.StorageService;
+
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductDao prodDao;
+	
+	@Autowired
+	private StorageService storageService;
 	
 	@Override
 	public Product findByPid(int pid) {
@@ -36,7 +43,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product save(Product p) {
+	public Product save(Product p,MultipartFile pimage) {
+		String fileName = storageService.store(pimage);
+		p.setPimage(fileName);
 		return prodDao.save(p);
 	}
 
