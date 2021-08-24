@@ -31,6 +31,7 @@ useEffect(() => {
           <tr>
             <th> ID</th>
             <th> Name</th>
+            <th>Image </th>
             <th> MainGrp</th>
             <th> SubGrp</th>
             <th> Type</th>

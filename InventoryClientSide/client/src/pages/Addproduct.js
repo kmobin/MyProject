@@ -4,6 +4,7 @@ import axios from "axios"
 import { url } from "../common/constants";
 const Addproduct=()=>{
     const[pname,setProductName]=useState('')
+    const[pimage,setProductImage]=useState(undefined)
     const[pmaingrp ,setProductMainGrp]=useState('')
     const[psubgrp ,setProductSubGrp]=useState('')
     const[ptype,setProductType]=useState('')
@@ -19,7 +20,20 @@ const Addproduct=()=>{
     const history = useHistory()
 
     const addproductToDB=()=>{
-        const data={pname,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg};
+      const data = new FormData()
+      data.append('pname', pname)
+      data.append('pimage', pimage)
+      data.append('pmaingrp', pmaingrp)
+      data.append('psubgrp', psubgrp)
+      data.append('ptype', ptype)
+      data.append('pbrand', pbrand)
+      data.append('currentstock', currentstock)
+      data.append('minstock', minstock)
+      data.append('maxstock', maxstock)
+      data.append('reorderlevel', reorderlevel)
+      data.append('reorderquantity', reorderquantity)
+      data.append('sellprice', sellprice)
+      data.append('alertmsg', alertmsg)
 
         axios.post(url + '/product/save ', data).then((response) => {
             const result = response.data
@@ -43,6 +57,19 @@ const Addproduct=()=>{
             className="form-control"
           />
         </div>
+
+          <div className="mb-3">
+        <label htmlFor="">Product Image</label>
+        <input
+          onChange={(e) => {
+            setProductImage(e.target.files[0])
+          }}
+          accept="image/*"
+          type="file"
+          className="form-control"
+        />
+      </div>
+
         <div className="mb-3">
           <label htmlFor="">Product Main grp</label>
           <input
