@@ -31,16 +31,8 @@ axios.get(url+`/product/pname/${str}`).then(response=>{
 
 return(
   <div>
-     <div >
-    {/* <img src="..." class="card-img-top" alt="..." /> */}
-    <div >
-      <h5 className="card-title">{product.pname}</h5>
-      <p className="card-text">{product.pbrand}</p>
-      <p className="card-text">{product.sellprice}</p>
-      <a href="#" class="btn btn-primary">Add Cart</a>
-    </div>
-    </div>
-    {/* <ProductInfo prod={product} /> */}
+
+    <ProductInfo product={product} />
   </div>
 )
 

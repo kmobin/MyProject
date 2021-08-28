@@ -51,7 +51,7 @@ useEffect(()=>{
       <option>Select Option</option>
         {
             maingrp.map(m=>{
-                return  <option  value={m}>{m}</option>
+                return  <option  value={m}> {m} </option>
             })
         }
         
