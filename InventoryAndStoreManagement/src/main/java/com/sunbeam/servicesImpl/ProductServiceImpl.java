@@ -54,6 +54,24 @@ public class ProductServiceImpl implements ProductService {
 		return prodDao.findAll();
 	}
 
+	@Override
+	public List<String> findDistinctSubGrp() {
+		
+		return prodDao.findDistinctSubGrp();
+	}
+
+	@Override
+	public List<String> findDistinctMainGrp() {
+		
+		return prodDao.findDistinctMainGrp();
+	}
+
+	@Override
+	public List<String> findDistinctName() {
+		
+		return prodDao.findDistinctName();
+	}
+
 	
 	
 

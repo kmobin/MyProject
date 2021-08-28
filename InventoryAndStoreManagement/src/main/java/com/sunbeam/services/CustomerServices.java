@@ -9,6 +9,6 @@ public interface CustomerServices {
 
 	Customer findByEmail(String email);
 	Customer save(Customer cust);
-
+	Customer findById(int id);
 	
 }

@@ -1,6 +1,8 @@
 package com.sunbeam.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,27 +40,33 @@ public class ProductController {
 		return ResponseEntity.ok(product);
 	}
 	
-	@PostMapping("/maingrp")
-	public ResponseEntity<List<Product>> findByMainGrp(@RequestBody ProductModel prod){
+	@CrossOrigin
+	@GetMapping("/maingrp/{str}")
+	public ResponseEntity<List<Product>> findByMainGrp(@PathVariable("str") String str){
+		System.out.println(str);
+		List<Product> product = prodService.findByPmaingrp(str);
 		
-		List<Product> product = prodService.findByPmaingrp(prod.getStr());
+		for (Product product2 : product) {
+			System.out.println(product2);
+		}
+		 System.out.println();
 		return ResponseEntity.ok(product);
 	}
 	
-	@PostMapping("/subgrp")
-	public ResponseEntity<List<Product>> findBySubGrp(@RequestBody ProductModel prod){
+	@GetMapping("/subgrp/{str}")
+	public ResponseEntity<List<Product>> findBySubGrp(@PathVariable("str") String str){
 		
-		List<Product> product = prodService.findByPsubgrp(prod.getStr());
+		List<Product> product = prodService.findByPsubgrp(str);
 		for (Product product2 : product) {
 			System.out.println(product2);
 		}
 		return ResponseEntity.ok(product);
 	}
 	
-	@PostMapping("/pname")
-	public ResponseEntity<Product> findByName(@RequestBody ProductModel prod){
+	@GetMapping("/pname/{str}")
+	public ResponseEntity<Product> findByName(@PathVariable("str") String str){
 		
-		Product product = prodService.findByPname(prod.getStr());
+		Product product = prodService.findByPname(str);
 		return ResponseEntity.ok(product);
 	}
 	
@@ -74,4 +82,23 @@ public class ProductController {
 		List<Product> prod = prodService.findall();
 		return ResponseEntity.ok(prod);
 	}
+	@CrossOrigin
+	@GetMapping("/all/{type}")
+	public ResponseEntity<List<String>> find(@PathVariable("type") String type){
+		List<String> list = new ArrayList<String>();
+		if(type.equals("main"))
+		list.addAll(prodService.findDistinctMainGrp());
+		else if(type.equals("sub"))
+		list.addAll(prodService.findDistinctSubGrp());
+		else if(type.equals("name"))
+		list.addAll(prodService.findDistinctName());
+		for (String string : list) {
+			System.out.println();
+		}
+		return ResponseEntity.ok(list);
+	}
+	
+	
+	
+	
 }

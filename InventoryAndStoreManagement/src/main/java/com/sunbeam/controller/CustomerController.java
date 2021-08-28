@@ -2,6 +2,7 @@ package com.sunbeam.controller;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -100,9 +101,31 @@ public class CustomerController {
 		return  ResponseEntity.ok(c);
 	}
 	
+	@GetMapping("/customer/{str}")
+	public ResponseEntity<Customer> getData(@PathVariable("str") String str,HttpSession session,HttpServletResponse response) throws IOException 
+	{
+		System.out.println(str);
+		Customer cust = custService.findByEmail(str);
+		System.out.println(cust.toString());
+		return ResponseEntity.ok(cust);
+	}
 	
+	@GetMapping("/login/{str}")
+	public int getId(@PathVariable("str") String str,HttpSession session,HttpServletResponse response) throws IOException 
+	{
+		System.out.println(str);
+		Customer cust = custService.findByEmail(str);
+		System.out.println(cust.toString());
+		return cust.getId();
+	}
 	
-	
-	
+	@GetMapping("/cust/{id}")
+	public ResponseEntity<Customer> getCustomerById(@PathVariable("id") int id,HttpSession session,HttpServletResponse response) throws IOException 
+	{
+		System.out.println(id);
+		Customer cust = custService.findById(id);
+		System.out.println(cust.toString());
+		return ResponseEntity.ok(cust);
+	}
 	
 }

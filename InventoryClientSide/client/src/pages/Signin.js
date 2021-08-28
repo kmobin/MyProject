@@ -2,10 +2,14 @@ import axios from "axios"
 import { useState } from "react"
 import { useHistory } from 'react-router-dom'
 import { url } from "../common/constants";
+import { useDispatch } from 'react-redux';
+import { show } from "../actions/CounterAction";
+import { hide } from './../actions/CounterAction';
 const Signin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const history = useHistory()
+  const dispatch = useDispatch()
   const signinUser = () => {
     if (email.length === 0) {
       alert('please enter email')
@@ -27,8 +31,10 @@ const Signin = () => {
           history.push('/admin')
         } else {
           console.log(email);
+
           alert("Successfully Login");
-          history.push('/customer')
+           dispatch(hide())
+          history.push(`/customer/${email}`)
         }
       })
     }

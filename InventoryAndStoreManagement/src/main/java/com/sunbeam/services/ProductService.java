@@ -13,4 +13,7 @@ public interface ProductService {
 	Product findByPname(String pname);
 	Product save(Product p,MultipartFile pimage);
 	List<Product> findall();
+	List<String> findDistinctSubGrp();
+	List<String> findDistinctMainGrp();
+	List<String> findDistinctName();
 }

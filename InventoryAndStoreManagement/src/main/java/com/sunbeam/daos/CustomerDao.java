@@ -9,6 +9,7 @@ public interface CustomerDao extends JpaRepository<Customer, Integer> {
 
 	//@Query("SELECT c.custId,c.custFname from customer c where custEmail=poonam5696@gmail.com")
 	Customer findByEmail(String email);
+	Customer findById(int id);
 	
 	
 }
