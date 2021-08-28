@@ -18,6 +18,9 @@ import { show } from './actions/CounterAction';
 import { useHistory } from 'react-router-dom';
 import Customer from './pages/customer';
 import Edit from './pages/Edit';
+import ProductMainGrp from './pages/ProductMainGrp';
+import ProductSearch from './pages/ProductSearch';
+import ProductSearchRow from './pages/ProductSearchRow';
 
 function App() {
   const show1 = useSelector((state)=>state.show)
@@ -133,6 +136,8 @@ function App() {
           <Route path="/search" component={Customer}/>
            <Route path="/profile" component={Profile}/>
            <Route path="/Edit" component={Edit} /> 
+           <Route path="/ProductSearch" component={ProductSearch}/>
+           <Route path="/ProductSearchRow" component={ProductSearchRow}/>
         </Switch>
       </div>
     </BrowserRouter>

@@ -169,4 +169,10 @@ public class ProductDto {
 		BeanUtils.copyProperties(dto, entity, "pimage");
 		return entity;
 	}
+	
+	public static ProductDto fromEntity(Product entity) {
+		ProductDto dto = new ProductDto();
+		BeanUtils.copyProperties(entity, dto);
+		return dto;
+	}
 }

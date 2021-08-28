@@ -28,6 +28,7 @@ const Signin = () => {
           alert("Invalid Login");
         } else if (email == 'mobin@gmail.com' && password == 'mobin') {
           console.log(email);
+          dispatch(hide())
           history.push('/admin')
         } else {
           console.log(email);

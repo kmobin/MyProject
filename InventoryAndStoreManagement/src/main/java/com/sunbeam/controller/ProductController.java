@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.sunbeam.entities.Product;
 import com.sunbeam.model.ProductDto;
 import com.sunbeam.model.ProductModel;
+import com.sunbeam.model.Response;
 import com.sunbeam.services.ProductService;
 import com.sunbeam.servicesImpl.ProductServiceImpl;
 
@@ -78,8 +80,9 @@ public class ProductController {
 	}
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Product>> findall(){
+	public ResponseEntity<?> findall(){
 		List<Product> prod = prodService.findall();
+		//Stream<ProductDto> result = prod.stream().map(product -> ProductDto.fromEntity(product));
 		return ResponseEntity.ok(prod);
 	}
 	@CrossOrigin

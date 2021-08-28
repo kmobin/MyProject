@@ -1,6 +1,6 @@
 import { url } from "../common/constants";
 //import Image from "../image/icecream.jpg"
-const ProductRow = ({ product }) => {
+const ProductSearchRow = ({ product }) => {
   return (
     <tr>
       <td>{product.pid}</td>
@@ -25,4 +25,4 @@ const ProductRow = ({ product }) => {
   )
 }
 
-export default ProductRow
+export default ProductSearchRow

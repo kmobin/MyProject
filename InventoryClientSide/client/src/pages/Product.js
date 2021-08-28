@@ -1,5 +1,5 @@
 import { useState ,useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
 import ProductRow from './ProductRow';
@@ -22,10 +22,13 @@ useEffect(() => {
     return (
         <div>
         <center><h2 className="page-title">Product Info</h2></center>
+        
         <Link to="/add-product">
         <button className="btn btn-success">Add Product</button>
         </Link>
-
+ 
+       <Link to="/ProductSearch"><h5><a>Search Product</a></h5></Link>
+           
         <table className="table table-striped">
         <thead>
           <tr>
@@ -37,8 +40,8 @@ useEffect(() => {
             <th> Type</th>
             <th> Brand</th>
             <th> Current<br></br>stock </th>
-            <th> Maxstock</th>
             <th> Minstock</th>
+            <th> Maxstock</th>
             <th> Reorder<br></br>Level</th>
             <th> ReOrder<br></br>Quantity</th>
             <th> Sell Price</th>
