@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { url } from './../common/constants';
+import ProductInfo from './ProductInfo';
 const axios = require('axios')
 
 const SubProductDetails=(props)=>{
@@ -32,11 +33,20 @@ const getProduct=()=>{
 }
   
 
-  return( <div>
-  {str}
+  return( 
+  // <center>
+  <div>
+   {
+          product.map(p=>{
+            return <ProductInfo product={p} />
+          })
+        } 
   
-  </div>)
-
+  </div>
+  
+  // </center>
+  )
+  
 
 }
 

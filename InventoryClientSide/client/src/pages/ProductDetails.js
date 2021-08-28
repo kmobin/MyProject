@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { url } from './../common/constants';
+import ProductInfo from './ProductInfo';
 const axios = require('axios')
 
 const ProductDetails=(props)=>{
@@ -34,8 +35,12 @@ const getProduct=()=>{
   
 
   return( <div>
-  {str}
-  
+ 
+        {
+          product.map(p=>{
+            return <ProductInfo product={p} />
+          })
+        } 
   </div>)
 
 
