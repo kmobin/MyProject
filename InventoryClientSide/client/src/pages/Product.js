@@ -27,7 +27,11 @@ useEffect(() => {
         <button className="btn btn-success">Add Product</button>
         </Link>
  
-       <Link to="/ProductSearch"><h5><a>Search Product</a></h5></Link>
+        <Link to="/ProductSearch"><button className="btn btn-success">Search Product</button></Link> 
+
+       <Link to="/admin">
+     <button className="btn btn-warning">Back</button>
+    </Link>
            
         <table className="table table-striped">
         <thead>

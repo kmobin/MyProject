@@ -21,6 +21,12 @@ import Edit from './pages/Edit';
 import ProductMainGrp from './pages/ProductMainGrp';
 import ProductSearch from './pages/ProductSearch';
 import ProductSearchRow from './pages/ProductSearchRow';
+import UpdateProduct from './pages/UpdateProduct';
+import ProductMain from './pages/ProductMain';
+import ProductSub from './pages/ProductSub';
+import ProductSubGrp from './pages/ProductSubGrp';
+import ProductName from './pages/ProductName';
+import ProductNameGrp from './pages/ProductNameGrp'
 import Cart from './pages/Cart';
 
 function App() {
@@ -140,6 +146,13 @@ function App() {
            <Route path="/cart" component={Cart} /> 
            <Route path="/ProductSearch" component={ProductSearch}/>
            <Route path="/ProductSearchRow" component={ProductSearchRow}/>
+           <Route path="/UpdateProduct" component={UpdateProduct}/>
+           <Route path="/ProductMain" component={ProductMain}></Route>
+         <Route path="/ProductSub" component={ProductSub}></Route>
+         <Route path="/ProductName" component={ProductName}></Route>
+         <Route path="/ProductMainGrp/:data" component={ProductMainGrp} />
+         <Route path="/ProductSubGrp/:data" component={ProductSubGrp} />
+         <Route path="/ProductNameGrp/:data" component={ProductNameGrp} />
         </Switch>
       </div>
     </BrowserRouter>

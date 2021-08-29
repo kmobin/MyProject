@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { BrowserRouter, Link, Route, Switch,useHistory } from 'react-router-dom'
 import { url } from './../common/constants';
 import ProductSearchRow from './ProductSearchRow';
 const axios = require('axios')
@@ -12,6 +13,16 @@ const str = props.match.params.data
 const [product,setProduct] = useState([])
 // const str1;
 // const str2;
+const deleteproduct=()=>
+  {
+    axios.delete(url + '/product/ '+product.pid).then((response) => {
+      const result = response.data
+      console.log(result);
+      alert("Product deleted successfully");
+      history.push('/Product')
+    })
+  }
+  const history = useHistory()
 useEffect(()=>{
      
    console.log("Product Loaded")
@@ -48,6 +59,15 @@ const getProduct=()=>{
       <td><strong>ReOrder<br></br>Quantity</strong><br></br>{product.reorderquantity}</td>
       <td><strong>Sell Price</strong><br></br>{product.sellprice}</td>
       <td><strong>Alert <br></br> Message</strong><br></br>{product.alertmsg}</td>
+    <td> <strong>Edit Option</strong>  <button onClick={() => {
+            history.push('/UpdateProduct', { product: product })
+          }} className="btn btn-success">Update</button></td>
+      <td>
+        <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
+      </td>
+      <td><Link to="/admin">
+     <button className="btn btn-warning">Back</button>
+    </Link></td>
         </tr>
       </thead>
     </table>

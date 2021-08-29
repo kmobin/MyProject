@@ -16,4 +16,5 @@ public interface ProductService {
 	List<String> findDistinctSubGrp();
 	List<String> findDistinctMainGrp();
 	List<String> findDistinctName();
+	boolean deleteById(int pid);
 }

@@ -73,7 +73,14 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	
-	
+	@Override
+	public boolean deleteById(int pid) {
+		if(prodDao.existsById(pid)) {
+			prodDao.deleteById(pid);
+			return true;
+		}
+		return false;
+	}
 
 	
 
