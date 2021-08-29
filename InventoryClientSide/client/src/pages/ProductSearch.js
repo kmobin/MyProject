@@ -1,10 +1,4 @@
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
-import ProductMain from './ProductMain';
-import ProductMainGrp from './ProductMainGrp';
-import ProductSub from './ProductSub';
-import ProductSubGrp from './ProductSubGrp';
-import ProductName from './ProductName';
-import ProductNameGrp from './ProductNameGrp'
 const axios = require('axios')
 const ProductSearch=()=>{
 return(
