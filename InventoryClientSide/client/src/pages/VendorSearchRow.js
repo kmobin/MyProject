@@ -6,23 +6,19 @@ import axios from "axios"
 
 const VendorSearchRow = ({vendor}) => {
 
+  const deleteproduct=()=>
+  {
+    axios.delete(url + '/vendor/delete/'+vendor.id).then((response) => {
+      const result = response.data
+      console.log(result);
+      alert("Vendor deleted successfully");
+      history.push('/vendor')
+    })
+  }
+  const history = useHistory()
      console.log(`VENDOR : ${vendor.id}`)
 
   return (
-//     <tr>
-//     <td>{vendor.data.id}</td> 
-//     <td>{vendor.data.vname}</td>
-//     <td>{vendor.data.vlname}</td>
-//     <td>{vendor.data.vadd1}</td>
-//     <td>{vendor.data.vadd2}</td>
-//     <td>{vendor.data.vcity}</td>
-//     <td>{vendor.data.vstate}</td>
-//     <td>{vendor.data.vcountry}</td>
-//     <td>{vendor.data.vmobile}</td>
-//     <td>{vendor.data.vemail}</td>
-//     <td> </td>
-//  </tr>
-
 <tr>
     <td>{vendor.id}</td> 
      <td>{vendor.vname}</td>
@@ -34,7 +30,9 @@ const VendorSearchRow = ({vendor}) => {
      <td>{vendor.vcountry}</td>
      <td>{vendor.vmobile}</td>
      <td>{vendor.vemail}</td>
-     <td> </td>
+     <td>
+        <button onClick={deleteproduct} className="btn btn-success" aria-disabled="true" >Delete</button>
+      </td>
   </tr>
   )
 

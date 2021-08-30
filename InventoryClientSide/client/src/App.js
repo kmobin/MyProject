@@ -33,6 +33,7 @@ import VendorSearchRow from './pages/VendorSearchRow';
 import FindVendor from './pages/FindVendor';
 import deletevendors from './pages/deletevendors';
 
+
 function App() {
   const show1 = useSelector((state)=>state.show)
    const dispatch = useDispatch()
@@ -145,6 +146,7 @@ function App() {
           <Route path="/SearchVendor" component={SearchVendor}/>
           <Route path="/DeleteVendor" component={DeleteVendor} />
           <Route path="/deletevendors" component={deletevendors}/>
+          
           <Route path="/VendorSearchRow/:data" component={VendorSearchRow} />
           <Route path="/logout" component={Logout}/>
           <Route path="/search" component={Customer}/>

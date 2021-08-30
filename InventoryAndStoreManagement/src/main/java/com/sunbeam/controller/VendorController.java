@@ -51,6 +51,8 @@ public class VendorController {
 		boolean vendor=vendService.deleteById(id);
 		return ResponseEntity.ok(vendor);
 		
+		
+	
 	}
 }
 

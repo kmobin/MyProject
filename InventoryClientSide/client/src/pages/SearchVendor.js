@@ -10,6 +10,7 @@ const SearchVendor = () => {
   const [email, setVendorEmail] = useState('')
   const [vendor, setVendor] = useState('')
 
+
   const history = useHistory()
 
 
@@ -18,7 +19,7 @@ const SearchVendor = () => {
       const result = response.data
       console.log(result);
       setVendor(response.data);
-      alert("Vendor found successfully");
+      //alert("Vendor found successfully");
 
     })
   }
@@ -51,7 +52,8 @@ const SearchVendor = () => {
 
       </div>
 
-      <table className="table table-striped">
+
+      <table className="table table-striped" >
         <thead>
           <tr>
             <th> ID</th>
@@ -64,7 +66,7 @@ const SearchVendor = () => {
             <th> Country</th>
             <th> Mobile</th>
             <th> Email</th>
-            <th></th>
+
 
           </tr>
         </thead>
@@ -76,10 +78,10 @@ const SearchVendor = () => {
 
         </tbody>
       </table>
-
-
-
     </div>
+
+
+
 
 
 
