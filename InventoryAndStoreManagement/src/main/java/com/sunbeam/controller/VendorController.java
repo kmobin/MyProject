@@ -27,9 +27,10 @@ public class VendorController {
 	private VendorService vendService;
     @CrossOrigin
 	@GetMapping("/vendor/{email}")
-	public ResponseEntity<?> findVendorByEmail(@PathVariable("email")String email){
+	public ResponseEntity<Vendor> findVendorByEmail(@PathVariable("email")String email){
 		Vendor vendor =vendService.findByEmail(email);		
-		return Response.success(vendor);
+		//return Response.success(vendor);
+		return ResponseEntity.ok(vendor);
 		
 	}
 	

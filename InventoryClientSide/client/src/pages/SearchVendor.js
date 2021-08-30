@@ -11,7 +11,7 @@ const SearchVendor = () => {
   const [vendor, setVendor] = useState('')
 
   const history = useHistory()
-  
+
 
   const SearchvendorToDB = () => {
     axios.get(url + `/vendor/${email}`).then((response) => {
@@ -19,7 +19,7 @@ const SearchVendor = () => {
       console.log(result);
       setVendor(response.data);
       alert("Vendor found successfully");
-     // history.push('/SearchVendor')
+
     })
   }
 
@@ -44,55 +44,44 @@ const SearchVendor = () => {
 
           Search
         </button>
+        <Link to="/vendor">
+          <button className="btn btn-warning">Back</button>
+        </Link>
 
-        <button className="btn btn-warning">Back</button>
 
       </div>
-      
+
       <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th> ID</th>
-                        <th> Name</th>
-                        <th> LastName</th>
-                        <th> Address1</th>
-                        <th> Address2</th>
-                        <th> City</th>
-                        <th> State</th>
-                        <th> Country</th>
-                        <th> Mobile</th>
-                        <th> Email</th>
-                        <th></th>
+        <thead>
+          <tr>
+            <th> ID</th>
+            <th> Name</th>
+            <th> LastName</th>
+            <th> Address1</th>
+            <th> Address2</th>
+            <th> City</th>
+            <th> State</th>
+            <th> Country</th>
+            <th> Mobile</th>
+            <th> Email</th>
+            <th></th>
 
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                     <VendorSearchRow vendor={vendor} />
-          {/* <tr>
-            <td>{vendor.id}</td>
-            <td>{vendor.vname}</td>
-            <td>{vendor.vlname}</td>
-            <td>{vendor.vadd1}</td>
-            <td>{vendor.vadd2}</td>
-            <td>{vendor.vcity}</td>
-            <td>{vendor.vstate}</td>
-            <td>{vendor.vcountry}</td>
-            <td>{vendor.vmobile}</td>
-            <td>{vendor.vemail}</td>
-            <td> </td>
-          </tr> */}
-      
-      
+          </tr>
+        </thead>
+        <tbody>
 
-                </tbody>
-            </table>
+          <VendorSearchRow vendor={vendor} />
 
-           {/* <VendorSearchRow vendor={vendor} /> */}
-  
-          </div>                             
 
-   
+
+        </tbody>
+      </table>
+
+
+
+    </div>
+
+
 
 
   )
