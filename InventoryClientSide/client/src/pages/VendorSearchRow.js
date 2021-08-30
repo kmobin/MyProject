@@ -9,76 +9,20 @@ const VendorSearchRow = ({vendor}) => {
      console.log(`VENDOR : ${vendor}`)
 
   return (
+    <tr>
+    <td>{vendor.data.id}</td>
+    <td>{vendor.data.vname}</td>
+    <td>{vendor.data.vlname}</td>
+    <td>{vendor.data.vadd1}</td>
+    <td>{vendor.data.vadd2}</td>
+    <td>{vendor.data.vcity}</td>
+    <td>{vendor.data.vstate}</td>
+    <td>{vendor.data.vcountry}</td>
+    <td>{vendor.data.vmobile}</td>
+    <td>{vendor.data.vemail}</td>
+    <td> </td>
+  </tr>
 
-<div>
-
-
-
-<table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th> ID</th>
-                        <th> Name</th>
-                        <th> LastName</th>
-                        <th> Address1</th>
-                        <th> Address2</th>
-                        <th> City</th>
-                        <th> State</th>
-                        <th> Country</th>
-                        <th> Mobile</th>
-                        <th> Email</th>
-                        <th></th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                      {/* <VendorSearchRow vendor={vendorDetails} /> */}
-          <tr>
-            <td>{vendor.id}</td>
-            <td>{vendor.vname}</td>
-            <td>{vendor.vlname}</td>
-            <td>{vendor.vadd1}</td>
-            <td>{vendor.vadd2}</td>
-            <td>{vendor.vcity}</td>
-            <td>{vendor.vstate}</td>
-            <td>{vendor.vcountry}</td>
-            <td>{vendor.vmobile}</td>
-            <td>{vendor.vemail}</td>
-            <td> </td>
-          </tr>
-      
-      
-
-                </tbody>
-            </table>
-
-
-
-
-
-
-
-
-
-
-          {/* <tr>
-            <td>{vendor.id}</td>
-            <td>{vendor.vname}</td>
-            <td>{vendor.vname}</td>
-            <td>{vendor.vadd1}</td>
-            <td>{vendor.vadd2}</td>
-            <td>{vendor.vcity}</td>
-            <td>{vendor.vstate}</td>
-            <td>{vendor.vcountry}</td>
-            <td>{vendor.vmobile}</td>
-            <td>{vendor.vemail}</td>
-            <td> </td>
-          </tr> */}
-      
-      
-
-    </div>
   )
 
   }

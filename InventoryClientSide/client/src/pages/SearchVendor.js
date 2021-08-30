@@ -49,8 +49,46 @@ const SearchVendor = () => {
 
       </div>
       
+      <table className="table table-striped">
+                <thead>
+                    <tr>
+                        <th> ID</th>
+                        <th> Name</th>
+                        <th> LastName</th>
+                        <th> Address1</th>
+                        <th> Address2</th>
+                        <th> City</th>
+                        <th> State</th>
+                        <th> Country</th>
+                        <th> Mobile</th>
+                        <th> Email</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                     <VendorSearchRow vendor={vendor} />
+          {/* <tr>
+            <td>{vendor.id}</td>
+            <td>{vendor.vname}</td>
+            <td>{vendor.vlname}</td>
+            <td>{vendor.vadd1}</td>
+            <td>{vendor.vadd2}</td>
+            <td>{vendor.vcity}</td>
+            <td>{vendor.vstate}</td>
+            <td>{vendor.vcountry}</td>
+            <td>{vendor.vmobile}</td>
+            <td>{vendor.vemail}</td>
+            <td> </td>
+          </tr> */}
       
-           <VendorSearchRow vendor={vendor} />
+      
+
+                </tbody>
+            </table>
+
+           {/* <VendorSearchRow vendor={vendor} /> */}
   
           </div>                             
 
