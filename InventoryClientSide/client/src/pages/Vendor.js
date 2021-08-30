@@ -26,8 +26,14 @@ const Vendor = () => {
             <Link to="/add-Vendor">
                 <button className="btn btn-success">Add Vendor</button>
             </Link>
-            <Link to="/search-Vendor">
+            <Link to="/SearchVendor">
                 <button className="btn btn-success">Search Vendor</button>
+            </Link>
+            <Link to="/SearchVendor">
+                <button className="btn btn-success">Delete Vendor</button>
+            </Link>
+            <Link to="/admin">
+                <button className="btn btn-warning">Back</button>
             </Link>
 
             <table className="table table-striped">

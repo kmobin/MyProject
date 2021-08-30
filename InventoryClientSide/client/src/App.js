@@ -26,8 +26,12 @@ import ProductMain from './pages/ProductMain';
 import ProductSub from './pages/ProductSub';
 import ProductSubGrp from './pages/ProductSubGrp';
 import ProductName from './pages/ProductName';
-import ProductNameGrp from './pages/ProductNameGrp'
+import ProductNameGrp from './pages/ProductNameGrp';
 import Cart from './pages/Cart';
+import DeleteVendor from './pages/deletevendors';
+import VendorSearchRow from './pages/VendorSearchRow';
+import FindVendor from './pages/FindVendor';
+import deletevendors from './pages/deletevendors';
 
 function App() {
   const show1 = useSelector((state)=>state.show)
@@ -138,7 +142,10 @@ function App() {
           <Route path="/add-product" component={Addproduct} />
           <Route path="/vendor" component={Vendor} />
           <Route path="/add-Vendor" component={AddVendor}/>
-          <Route path="/search-Vendor" component={SearchVendor}/>
+          <Route path="/SearchVendor" component={SearchVendor}/>
+          <Route path="/DeleteVendor" component={DeleteVendor} />
+          <Route path="/deletevendors" component={deletevendors}/>
+          <Route path="/VendorSearchRow/:data" component={VendorSearchRow} />
           <Route path="/logout" component={Logout}/>
           <Route path="/search" component={Customer}/>
            <Route path="/profile" component={Profile}/>
@@ -153,6 +160,7 @@ function App() {
          <Route path="/ProductMainGrp/:data" component={ProductMainGrp} />
          <Route path="/ProductSubGrp/:data" component={ProductSubGrp} />
          <Route path="/ProductNameGrp/:data" component={ProductNameGrp} />
+         <Route path="/FindVendor" component={FindVendor} />
         </Switch>
       </div>
     </BrowserRouter>

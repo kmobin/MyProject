@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,11 +20,12 @@ import com.sunbeam.model.Response;
 import com.sunbeam.services.VendorService;
 
 @CrossOrigin
+
 @RestController
 public class VendorController {
 	@Autowired
 	private VendorService vendService;
-
+    @CrossOrigin
 	@GetMapping("/vendor/{email}")
 	public ResponseEntity<?> findVendorByEmail(@PathVariable("email")String email){
 		Vendor vendor =vendService.findByEmail(email);		
@@ -41,6 +43,13 @@ public class VendorController {
 	public ResponseEntity<Vendor> save(@RequestBody Vendor vend){
 		Vendor vendor = vendService.save(vend);
 		return ResponseEntity.ok(vendor);
+	}
+	
+	@DeleteMapping("/vendor/delete/{id}")
+	public  ResponseEntity<?> Delete(@PathVariable("id")int id){
+		boolean vendor=vendService.deleteById(id);
+		return ResponseEntity.ok(vendor);
+		
 	}
 }
 

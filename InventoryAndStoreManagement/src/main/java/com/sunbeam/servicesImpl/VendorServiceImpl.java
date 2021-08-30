@@ -39,4 +39,19 @@ public class VendorServiceImpl implements VendorService {
 		return vendDao.save(vend);
 	}
 
+	
+
+	@Override
+	public boolean deleteById(int id) {
+		if(vendDao.existsById(id)) {
+			vendDao.deleteById(id);
+			return true;
+		}
+		return false;
+	}
+
 }
+
+
+
+
