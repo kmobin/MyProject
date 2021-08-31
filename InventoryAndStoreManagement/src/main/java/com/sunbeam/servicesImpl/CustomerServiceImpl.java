@@ -1,5 +1,6 @@
 package com.sunbeam.servicesImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,12 @@ public class CustomerServiceImpl implements CustomerServices{
 	public Customer findById(int id) {
 		
 		return custDao.findById(id);
+	}
+
+	@Override
+	public List<Customer> findAll() {
+	
+		return custDao.findAll();
 	}
 
 

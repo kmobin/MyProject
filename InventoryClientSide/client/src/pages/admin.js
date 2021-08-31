@@ -16,7 +16,7 @@ const admin = () => {
                     <h3><a>Vendor Info</a></h3>
                 </Link>
 
-                <Link to="/customer">
+                <Link to="/CustomerInfo">
                     <h3><a>Customer Info </a></h3>
                 </Link>
             </div>

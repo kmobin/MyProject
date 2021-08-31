@@ -3,6 +3,7 @@ package com.sunbeam.controller;
 import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sunbeam.entities.Admin;
 import com.sunbeam.entities.Customer;
+import com.sunbeam.entities.Vendor;
 import com.sunbeam.model.Crediential;
 import com.sunbeam.model.Response;
 import com.sunbeam.services.AdminService;
@@ -126,6 +128,12 @@ public class CustomerController {
 		Customer cust = custService.findById(id);
 		System.out.println(cust.toString());
 		return ResponseEntity.ok(cust);
+	}
+	
+	@GetMapping("/findAll/cust")
+	public ResponseEntity<List<Customer>> findAll(){
+		List<Customer>list=custService.findAll();
+		return ResponseEntity.ok(list);
 	}
 	
 }

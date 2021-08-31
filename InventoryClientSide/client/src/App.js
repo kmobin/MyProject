@@ -32,6 +32,8 @@ import DeleteVendor from './pages/deletevendors';
 import VendorSearchRow from './pages/VendorSearchRow';
 import FindVendor from './pages/FindVendor';
 import deletevendors from './pages/deletevendors';
+import CustomerInfo from './pages/CustomerInfo';
+import CustomerRow from './pages/CustomerRow';
 
 
 function App() {
@@ -80,8 +82,6 @@ function App() {
               </Link>
             </li>
              }
-
-
 
 
               {show1?<li>
@@ -146,7 +146,9 @@ function App() {
           <Route path="/SearchVendor" component={SearchVendor}/>
           <Route path="/DeleteVendor" component={DeleteVendor} />
           <Route path="/deletevendors" component={deletevendors}/>
-          
+          <Route path="/CustomerInfo" component={CustomerInfo}/>
+    
+          <Route path="/CustomerRow" component={CustomerRow}/>
           <Route path="/VendorSearchRow/:data" component={VendorSearchRow} />
           <Route path="/logout" component={Logout}/>
           <Route path="/search" component={Customer}/>
