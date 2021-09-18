@@ -34,7 +34,8 @@ useEffect(()=>{
    const handleSubmit = ()=>{
        if(data==''){
          alert("Select Option");
-         history.push('/Main')
+         window.location.reload();
+        //  history.push('/Main')
         }
          else{
             alert(`${data}`)

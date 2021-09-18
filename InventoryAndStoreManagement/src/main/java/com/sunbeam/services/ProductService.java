@@ -11,10 +11,11 @@ public interface ProductService {
 	List<Product> findByPmaingrp(String pmaingrp);
 	List<Product> findByPsubgrp(String psubgrp);
 	Product findByPname(String pname);
-	Product save(Product p,MultipartFile pimage);
+//	Product save(Product p,MultipartFile pimage);
 	List<Product> findall();
 	List<String> findDistinctSubGrp();
 	List<String> findDistinctMainGrp();
 	List<String> findDistinctName();
 	boolean deleteById(int pid);
+	Product save(Product prod);
 }

@@ -27,6 +27,12 @@ public class CartServiceImpl implements CartService {
 		return dao.save(cart);
 	}
 
+	@Override
+	public void delete(Cart cart) {
+		dao.delete(cart);
+		
+	}
+
 	
 	
 	

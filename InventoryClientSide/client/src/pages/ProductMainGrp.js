@@ -55,8 +55,10 @@ const getProduct=()=>{
           </tr>
         </thead>
         <tbody>
+          
         {
           product.map(p=>{
+            
               return <ProductSearchRow product={p}/>
           })
           }

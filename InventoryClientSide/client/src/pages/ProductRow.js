@@ -6,7 +6,7 @@ const ProductRow = ({ product }) => {
       <td>{product.pid}</td>
       <td>{product.pname}</td>
       <td><img
-          src={url +"D:/Upload/" +product.pimage}
+          src={product.pimage}
           alt="" className="image"
         /></td>
       <td>{product.pmaingrp}</td>

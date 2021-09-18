@@ -31,9 +31,14 @@ axios.get(url+`/product/pname/${str}`).then(response=>{
 
 return(
   <div>
-
-    <ProductInfo product={product} />
+ 
+<br />
+<br />
+ <div className="row row-cols-1 row-cols-md-3 g-4">
+ <ProductInfo product={product} />
   </div>
+  </div>
+
 )
 
 }

@@ -14,6 +14,7 @@ public interface CartDao extends JpaRepository<Cart, Integer>{
 	List<Integer> findByCid(@Param("cid") int cid);
 	
 	Cart save(Cart cart);
-	
+//	@Query("DELETE FROM Cart c WHERE c.pid=:pid AND c.cid=:cid")
+//	void delete(@Param("pid") int pid,@Param("cid") int cid );
 	
 }
