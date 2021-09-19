@@ -24,10 +24,11 @@ const getProduct=()=>{
     
      axios.get(url + `/product/maingrp/${str}`).then(response=>{
       const result = response.data
-        console.log(result)
-        setProduct(response.data)
-        ProductId.setProd(response.data.pid,product.pname,product.pimage,product.pmaingrp,product.psubgrp,product.ptype,
-          product.pbrand,product.currentstock,product.minstock,product.maxstock,product.reorderlevel,product.reorderquantity,product.sellprice,product.alertmsg)
+      console.log("--------------------------------") 
+      console.log(result)
+        // setProduct(response.data)
+         ProductId.setProd(result[0].pid,result[0].pname,product.pimage,product.pmaingrp,product.psubgrp,product.ptype,
+           product.pbrand,product.currentstock,product.minstock,product.maxstock,product.reorderlevel,product.reorderquantity,product.sellprice,product.alertmsg)
           ProductId.print()
      })
      
@@ -60,12 +61,12 @@ const getProduct=()=>{
         </thead>
         <tbody>
           
-        {
+        {/* {
           product.map(p=>{
             
               return <ProductSearchRow product={p}/>
           })
-          }
+          } */}
         </tbody>
       </table>
   </div>)
