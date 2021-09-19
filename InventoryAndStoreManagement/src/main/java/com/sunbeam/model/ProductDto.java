@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.sunbeam.entities.Product;
 
 public class ProductDto {
-	
+	private int pid;
 	private String pname;
 	private MultipartFile pimage;
 	private String pmaingrp;
@@ -21,14 +21,15 @@ public class ProductDto {
 	private double sellprice;
 	private String alertmsg;
 	
+
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductDto(String pname, MultipartFile pimage, String pmaingrp, String psubgrp, String ptype,
+	public ProductDto(int pid,String pname, MultipartFile pimage, String pmaingrp, String psubgrp, String ptype,
 			String pbrand, double currentstock, double minstock, double maxstock, double reorderlevel,
 			double reorderquantity, double sellprice, String alertmsg) {
-	
+		this.pid = pid;
 		this.pname = pname;
 		this.pimage = pimage;
 		this.pmaingrp = pmaingrp;
@@ -46,6 +47,14 @@ public class ProductDto {
 
 
 
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
 
 	public String getPname() {
 		return pname;
@@ -153,7 +162,7 @@ public class ProductDto {
 
 	@Override
 	public String toString() {
-		return "ProductDto ["+" pname=" + pname + ", pimage=" + pimage + ", pmaingrp=" + pmaingrp
+		return "ProductDto [pid=" + pid + ", pname=" + pname + ", pimage=" + pimage + ", pmaingrp=" + pmaingrp
 				+ ", psubgrp=" + psubgrp + ", ptype=" + ptype + ", pbrand=" + pbrand + ", currentstock=" + currentstock
 				+ ", minstock=" + minstock + ", maxstock=" + maxstock + ", reorderlevel=" + reorderlevel
 				+ ", reorderquantity=" + reorderquantity + ", sellprice=" + sellprice + ", alertmsg=" + alertmsg + "]";

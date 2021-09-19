@@ -1,226 +1,152 @@
 import { useState } from 'react';
-import {  Link ,useHistory,useLocation} from 'react-router-dom'
+import {  Link ,useHistory,useLocation} from 'react-router'
 import axios from "axios"
 import { url } from "../common/constants";
-const UpdateProduct=()=>{
-    const[pid,setProductID]=useState('')
-    const[pname,setProductName]=useState('')
-    const[pimage,setProductImage]=useState(undefined)
-    const[pmaingrp ,setProductMainGrp]=useState('')
-    const[psubgrp ,setProductSubGrp]=useState('')
-    const[ptype,setProductType]=useState('')
-    const[pbrand,setProductBrand]=useState('')
-    const[currentstock ,setCurrentStock]=useState('')
-    const[minstock ,setMinStock]=useState('')
-    const[maxstock ,setMaxStock]=useState('')
-    const[reorderlevel  ,setReorderLevel]=useState('')
-    const[reorderquantity  ,setReorderQuantity]=useState('')
-    const[sellprice,setSellPrice]=useState('')
-    const[alertmsg,setAlertmsg]=useState('')
-    const[pro,setProduct]=useState([])
+import ProductId from '../common/ProductId';
+const UpdateProduct=({product})=>{
 
-    const history = useHistory()
+const[pid,setProductID]=useState(product.pid)
+    const[pname,setProductName]=useState(product.pname)
+    const[pimage,setProductImage]=useState(product.pimage)
+    const[pmaingrp ,setProductMainGrp]=useState(product.pmaingrp)
+    const[psubgrp ,setProductSubGrp]=useState(product.psubgrp)
+    const[ptype,setProductType]=useState(product.ptype)
+    const[pbrand,setProductBrand]=useState(product.pbrand)
+    const[currentstock ,setCurrentStock]=useState(product.currentstock)
+    const[minstock ,setMinStock]=useState(product.minstock)
+    const[maxstock ,setMaxStock]=useState(product.maxstock)
+    const[reorderlevel  ,setReorderLevel]=useState(product.reorderlevel)
+    const[reorderquantity  ,setReorderQuantity]=useState(product.reorderquantity)
+    const[sellprice,setSellPrice]=useState(product.sellprice)
+    const[alertmsg,setAlertmsg]=useState(product.alertmsg)
+ 
+    console.log(product)
 
-    const location = useLocation()
-
-  // selected album in the previous page
-  const product = location.state.product
-setProductID(product.pid)
-    const updateproductToDB=()=>{
-      const data = new FormData()
-      data.append('pid',pid)
-      data.append('pname', pname)
-      data.append('pimage', pimage)
-      data.append('pmaingrp', pmaingrp)
-      data.append('psubgrp', psubgrp)
-      data.append('ptype', ptype)
-      data.append('pbrand', pbrand)
-      data.append('currentstock', currentstock)
-      data.append('minstock', minstock)
-      data.append('maxstock', maxstock)
-      data.append('reorderlevel', reorderlevel)
-      data.append('reorderquantity', reorderquantity)
-      data.append('sellprice', sellprice)
-      data.append('alertmsg', alertmsg)
-
-
-      axios.post(url + '/product/save ', data).then((response) => {
-        const result = response.data
-        console.log(result);
-        alert("Update successfully");
-        history.push('/product')
-      })
+  const history = useHistory()
+   const update = ()=>{
+    const data1 = new FormData()
+      data1.append('pname', pname)
+      data1.append('pimage', pimage)
+      data1.append('pmaingrp', pmaingrp)
+      data1.append('psubgrp', psubgrp)
+      data1.append('ptype', ptype)
+      data1.append('pbrand', pbrand)
+      data1.append('currentstock', currentstock)
+      data1.append('minstock', minstock)
+      data1.append('maxstock', maxstock)
+      data1.append('reorderlevel', reorderlevel)
+      data1.append('reorderquantity', reorderquantity)
+      data1.append('sellprice', sellprice)
+      data1.append('alertmsg', alertmsg)
+  
+  axios.post(url + '/product/save',data1).then(response=>{
+      const result = response.data
+      if(result != null)
+      {  alert("Data Updated")
+      ProductId.setProduct(pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg)
+             history.push('/product')
     }
+    else{
+        alert("Data Not Updated")
+    }
+  })
 
-    return (
-        <div>
-    
-        <div className="mb-3">
-          <label htmlFor="">Product Name</label>
-          <input
-            onChange={(e) => {
-              setProductName(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.pname}
-          />
-        </div>
 
-          <div className="mb-3">
-        <label htmlFor="">Product Image</label>
-        <input
-          onChange={(e) => {
-            setProductImage(e.target.files[0])
-          }}
-          accept="image/*"
-          type="file"
-          className="form-control"
-          defaultValue={product.pimage}
-        />
-      </div>
+   //       //console.log(data1)
+ }
 
-      <div className="mb-3">
-          <label htmlFor="">Product Main grp</label>
-          <input
-            onChange={(e) => {
-              setProductMainGrp(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.pmaingrp}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Product Sub grp</label>
-          <input
-            onChange={(e) => {
-              setProductSubGrp(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.psubgrp}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="">Product Type</label>
-          <input
-            onChange={(e) => {
-              setProductType(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.ptype}
-          />
-        </div>
-            
-        <div className="mb-3">
-          <label htmlFor="">Product Brand</label>
-          <input
-            onChange={(e) => {
-              setProductBrand(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.pbrand}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="">Product Current Stock:</label>
-          <input
-            onChange={(e) => {
-              setCurrentStock(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.currentstock}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="">Product Min Stock</label>
-          <input
-            onChange={(e) => {
-              setMinStock(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.minstock}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Product Max Stock</label>
-          <input
-            onChange={(e) => {
-                setMaxStock(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.maxstock}
-          />
-        </div>
-        
-        <div className="mb-3">
-          <label htmlFor="">Product Reorder Level</label>
-          <input
-            onChange={(e) => {
-                setReorderLevel(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.reorderlevel}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="">Product Reorder Quantity</label>
-          <input
-            onChange={(e) => {
-                setReorderQuantity(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.reorderquantity}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="">Product Sell Price</label>
-          <input
-            onChange={(e) => {
-                setSellPrice(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.sellprice}
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="">Alert Message</label>
-          <input
-            onChange={(e) => {
-                setAlertmsg(e.target.value)
-            }}
-            type="text"
-            className="form-control"
-            defaultValue={product.alertmsg}
-          />
-        </div>
-
-        <div className="mb-3">
-          <button onClick={updateproductToDB} className="btn btn-success">
-            Add
-          </button>
-
-          <Link to="/product">
-          <button className="btn btn-warning">Back</button>
-          </Link>
-        </div>
-      </div>
-
+  return (
+    <div>
+       
+        <div></div>
+        <br />
+            <div>
+               <label>Product Name : </label>
+               <input type="text" onChange={event=>{setProductName(event.target.value)}} defaultValue={pname} />
+               </div>
+               
+               <br />
+               <div>
+               <label>Product Image: </label>
+               <input type="file"  onChange={event=>{setProductImage(event.target.files[0])}} defaultValue={pimage} />
+               </div>
+               
+               <br />
+   
+               <div>
+               <label>Product Main grp : </label>
+               <input type="text" onChange={event=>{setProductMainGrp(event.target.value)}} defaultValue={pmaingrp} />
+               </div>
+               <br />
+                
+   
+               <div>
+               <label>Product Sub grp : </label>
+               <input type="text" onChange={event=>{setProductSubGrp(event.target.value)}}  defaultValue={psubgrp} />
+               </div>
+               <br />
+               
+               <div>
+               <label>Product Type : </label>
+               <input type="text" onChange={event=>{setProductType(event.target.value)}} defaultValue={ptype} />
+               </div>
+               
+               <br />
+               <div>
+               <label>Product Brand: </label>
+               <input type="text"  onChange={event=>{setProductBrand(event.target.value)}} defaultValue={pbrand} />
+               </div>
+               <br />
+               
+               <div>
+               <label>Product Current Stock : </label>
+               <input type="text" onChange={event=>{setCurrentStock(event.target.value)}}  defaultValue={currentstock} />
+               </div>
+               
+               <br />
+               <div>
+               <label>Product Min Stock : </label>
+               <input type="text"  onChange={event=>{setMinStock(event.target.value)}} defaultValue={minstock} />
+               </div>
+               
+               <br />
+   
+               <div>
+               <label>Product Max Stock : </label>
+               <input type="text" onChange={event=>{setMaxStock(event.target.value)}} defaultValue={maxstock} />
+               </div>
+               <br />
+               
+               <div>
+               <label>Product Reorder Level: </label>
+               <input type="text" onChange={event=>{setReorderLevel(event.target.value)}} defaultValue={reorderlevel}></input>
+               </div>
+               <br />
+               
+               <div>
+               <label>Product Reorder Quantity : </label>
+               <input type="text" onChange={event=>{setReorderQuantity(event.target.value)}}  defaultValue={reorderquantity} />
+               </div>
+               
+              <br />
+               <div>
+               <label>Product Sell Price : </label>
+               <input type="text" onChange={event=>{setSellPrice(event.target.value)}}  defaultValue={sellprice} />
+               </div>
+               
+               <br />
+               <div>
+               <label>Alert Message : </label>
+               <input type="text" onChange={event=>{setAlertmsg(event.target.value)}}  defaultValue={alertmsg} />
+               </div>
+               
+               <br /> 
+               <button onClick={update}>Update</button> 
+   
+   
+   
+               
+              </div>
     )
 }
 

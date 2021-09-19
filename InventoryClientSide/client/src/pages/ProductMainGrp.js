@@ -4,6 +4,7 @@ import axios from "axios"
 import { url } from "../common/constants";
 import { useHistory } from 'react-router-dom';
 import ProductSearchRow from './ProductSearchRow';
+import ProductId from '../common/ProductId';
 const ProductMainGrp=(props)=>{
     console.log(props)
  
@@ -25,6 +26,9 @@ const getProduct=()=>{
       const result = response.data
         console.log(result)
         setProduct(response.data)
+        ProductId.setProd(response.data.pid,product.pname,product.pimage,product.pmaingrp,product.psubgrp,product.ptype,
+          product.pbrand,product.currentstock,product.minstock,product.maxstock,product.reorderlevel,product.reorderquantity,product.sellprice,product.alertmsg)
+          ProductId.print()
      })
      
 

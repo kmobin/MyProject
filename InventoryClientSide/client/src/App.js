@@ -34,6 +34,7 @@ import FindVendor from './pages/FindVendor';
 import deletevendors from './pages/deletevendors';
 import CustomerInfo from './pages/CustomerInfo';
 import CustomerRow from './pages/CustomerRow';
+import UpdateProdetail from './pages/UpdateProdetail';
 
 
 function App() {
@@ -165,6 +166,7 @@ function App() {
          <Route path="/ProductSubGrp/:data" component={ProductSubGrp} />
          <Route path="/ProductNameGrp/:data" component={ProductNameGrp} />
          <Route path="/FindVendor" component={FindVendor} />
+         <Route path="/Updateproductdetail" component={UpdateProdetail}/> 
         </Switch>
       </div>
     </BrowserRouter>

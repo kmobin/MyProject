@@ -1,8 +1,15 @@
 import { url } from "../common/constants";
 import { BrowserRouter, Link, Route, Switch,useHistory } from 'react-router-dom'
+import UpdateProduct from "./UpdateProduct";
+import UpdateProdetail from "./UpdateProdetail";
 import axios from "axios"
+import ProductId from "../common/ProductId";
 //import Image from "../image/icecream.jpg"
 const ProductSearchRow = ({ product }) => {
+  const history = useHistory()
+  const editprod=()=>{
+     history.push("/Updateproductdetail")
+  }
   const deleteproduct=()=>
   {
     axios.delete(url + '/product/ '+product.pid).then((response) => {
@@ -12,14 +19,14 @@ const ProductSearchRow = ({ product }) => {
       history.push('/Product')
     })
   }
-  const history = useHistory()
+
   return (
     
     <tr>
       <td>{product.pid}</td>
       <td>{product.pname}</td>
       <td><img
-          src={url +"D:/Upload/" +product.pimage}
+          src={product.pimage}
           alt="" className="image"
         /></td>
       <td>{product.pmaingrp}</td>
@@ -33,10 +40,7 @@ const ProductSearchRow = ({ product }) => {
       <td>{product.reorderquantity}</td>
       <td>{product.sellprice}</td>
       <td>{product.alertmsg}</td>
-      <td> <button onClick={() => {
-            history.push('/UpdateProduct', { product: product })
-          }} className="btn btn-success">Update</button></td>
-      <td>
+     <td>< button onClick={editprod} className="btn btn-success" >Update</button>
         <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
       </td>
       <td><Link to="/admin">

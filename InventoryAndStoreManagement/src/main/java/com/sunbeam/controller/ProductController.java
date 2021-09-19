@@ -179,4 +179,52 @@ public class ProductController {
 		return ResponseEntity.ok(prod);
 	}
 	
+	@PostMapping("/update")
+	public ResponseEntity<String> update(ProductDto pdto){
+			
+			
+			try {
+				String name ="";
+				Product prod = new Product();
+		    	System.out.println(pdto.getPimage());
+		    	prod.setPid(pdto.getPid());
+	            if(pdto.getPimage()==null) {
+//	            	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Please Upload Image");
+	            
+	            	  System.out.println("Hello");
+	                
+	            	  			
+	            	  Product pp = prodService.findByPid(prod.getPid());
+	            	  name = pp.getPimage();            
+	            }
+	            else {
+	            
+	            	 name = file.uploadFile(pdto.getPimage());
+	            }
+	            
+	                	System.out.println("Hiiii");                	
+	
+	                   prod.setPid(pdto.getPid());	
+	                   prod.setPname(pdto.getPname());
+	                   prod.setPimage(name);
+						prod.setPmaingrp(pdto.getPmaingrp());
+						prod.setPsubgrp(pdto.getPsubgrp());
+						prod.setPtype(pdto.getPtype());
+						prod.setPbrand(pdto.getPbrand());
+						prod.setCurrentstock(pdto.getCurrentstock());
+						prod.setMinstock(pdto.getMinstock());
+						prod.setMaxstock(pdto.getMaxstock());
+						prod.setReorderlevel(pdto.getReorderlevel());
+						prod.setReorderquantity(pdto.getReorderquantity());
+				    	prod.setSellprice(pdto.getSellprice());
+						prod.setAlertmsg(pdto.getAlertmsg());
+	
+	                    prodService.save(prod);
+
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return ResponseEntity.ok("Updated SuccessFully");
+		}
 }
