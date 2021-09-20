@@ -26,10 +26,24 @@ const ProductSearchRow = ({ product }) => {
         ProductId.setProd(response.data.pid,response.data.pname,response.data.pimage,response.data.pmaingrp,response.data.psubgrp,response.data.ptype,
           response.data.pbrand,response.data.currentstock,response.data.minstock,response.data.maxstock,response.data.reorderlevel,response.data.reorderquantity,response.data.sellprice,response.data.alertmsg)
           ProductId.print()
-  
+          // const {pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg} = ProductId
+          // //console.log(pid)
+          //   const product={pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg}
+              // console.log(product)
+          //   //  return (
+            //    <div>
+            //     <UpdateProduct product={product}/>
+            //     </div>
+            //  )
+            history.push('/Updateproductdetail')
+            //history.push(`/UpdateProduct`)
       })
      
-      history.push(`/Updateproductdetail`)
+        //<UpdateProduct product={product}/>
+     
+     
+
+      //history.push(`/UpdateProduct`)
     }
   
   
