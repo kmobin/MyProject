@@ -35,6 +35,8 @@ import deletevendors from './pages/deletevendors';
 import CustomerInfo from './pages/CustomerInfo';
 import CustomerRow from './pages/CustomerRow';
 import UpdateProdetail from './pages/UpdateProdetail';
+import ForgotPassword from './pages/ForgotPassword';
+import SecurityQue from './pages/SecurityQue';
 
 
 function App() {
@@ -119,7 +121,11 @@ function App() {
               
              }
 {
-               show1?null:<li>
+               show1? <li>
+               <Link className="nav-link" to="/forgot">
+                Forgot Password
+               </Link>
+             </li>:<li>
               <Link className="nav-link" to="/logout"> 
                 Logout
               </Link>
@@ -167,6 +173,8 @@ function App() {
          <Route path="/ProductNameGrp/:data" component={ProductNameGrp} />
          <Route path="/FindVendor" component={FindVendor} />
          <Route path="/Updateproductdetail" component={UpdateProdetail}/> 
+         <Route path="/forgot" component={ForgotPassword}/>
+         <Route path="/securityque" component={SecurityQue}/> 
         </Switch>
       </div>
     </BrowserRouter>

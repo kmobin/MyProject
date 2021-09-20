@@ -20,10 +20,11 @@ class CustId extends React.Component{
          console.log(`email : ${this.email}`)
          console.log(`password : ${this.password}`)
          console.log(`dob : ${this.dob}`)
-         console.log(`security : ${this.security}`)
+         console.log(`securityque : ${this.securityque}`)
+         console.log(`securityans : ${this.securityans}`)
         }
 
-        setCust(id,fname,mname,lname,add1,add2,city,state,country,mobile,email,password,dob){
+        setCust(id,fname,mname,lname,add1,add2,city,state,country,mobile,email,password,dob,securityque,securityans){
             this.id=id
             this.fname = fname
             this.mname = mname
@@ -37,7 +38,8 @@ class CustId extends React.Component{
              this.email = email
         this.password = password
         this.dob = dob
-        // this.security = security
+         this.securityque = securityque
+         this.securityans = securityans
         }
    setId(id){
     this.id = id   

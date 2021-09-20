@@ -30,6 +30,7 @@ import com.sunbeam.model.Response;
 import com.sunbeam.services.AdminService;
 //import com.sunbeam.model.Credintial;
 import com.sunbeam.services.CustomerServices;
+import com.sunbeam.utils.EmailService;
 
 @CrossOrigin
 @RestController
@@ -41,7 +42,8 @@ public class CustomerController {
 	private AdminService adminService;
 	@Autowired
 	private PasswordEncoder passEncoder;
-	
+	@Autowired
+	private EmailService emailService;
 	
 	@PostMapping("/login")
 	public String login(@RequestBody Crediential cred,HttpSession session,HttpServletResponse response) throws IOException 
@@ -108,7 +110,12 @@ public class CustomerController {
 	{
 		System.out.println(str);
 		Customer cust = custService.findByEmail(str);
-		System.out.println(cust.toString());
+		
+		  if(cust==null) {
+			System.out.println("Null Hello");
+			  return ResponseEntity.ok(null);
+		  }
+		  System.out.println(cust.toString());
 		return ResponseEntity.ok(cust);
 	}
 	
@@ -135,5 +142,10 @@ public class CustomerController {
 		List<Customer>list=custService.findAll();
 		return ResponseEntity.ok(list);
 	}
-	
+	@PostMapping("/cust/forgot")
+	public ResponseEntity<String> forgot(@RequestBody Customer cust) {
+		
+		emailService.sendSimpleEmail(cust.getEmail(),cust.getFname(),cust.getPassword());
+		return ResponseEntity.ok("Success");
+	}
 }

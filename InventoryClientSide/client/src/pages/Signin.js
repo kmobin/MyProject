@@ -32,8 +32,8 @@ const Signin = () => {
           history.push('/admin')
         } else {
           console.log(email);
-
-          alert("Successfully Login");
+        
+           alert("Successfully Login");
            dispatch(hide())
           history.push(`/customer/${email}`)
         }

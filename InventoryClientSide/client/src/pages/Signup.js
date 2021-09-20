@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { url } from "../common/constants";
+import { useHistory } from 'react-router-dom';
 const Signup=()=>{
     const[id,setId]=useState('');
     const [fname, setFirstName] = useState('')
@@ -15,7 +16,11 @@ const Signup=()=>{
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [dob, setDob] = useState('')
+    const [securityque, setSecurityque] = useState('')
+    const [securityans, setSecurityans] = useState('')
   
+    const history = useHistory()
+
     const signupUser = () => {
     //  console.log(`first name = ${fname}`)
     //   console.log(`last name = ${lname}`)
@@ -23,14 +28,24 @@ const Signup=()=>{
     //   console.log(`password = ${password}`)
     //   console.log(`city = ${city}`)
 
-    const data={fname,mname,lname,add1,add2,city,state,country,mobile,email,password,dob};
+    
+    if(securityque!='select'){
+      const data={fname,mname,lname,add1,add2,city,state,country,mobile,email,password,dob,securityque,securityans};
       
-
+console.log(data)
       axios.post(url + '/customer/register ', data).then((response) => {
         const result = response.data
         console.log(result);
         alert("Signup successful");
+        history.push('/home')
       })
+    }
+    else{
+      alert("Please Select Security Question");
+      window.location.reload();
+    }
+
+
     }
   
     return (
@@ -166,9 +181,43 @@ const Signup=()=>{
               setDob(event.target.value)
             }}
             className="form-control"
+            type="date"
+          />
+        </div>
+       
+       
+       
+        <div className="mb-3">
+          <label htmlFor="">Security Question</label>
+          
+          <select onChange={event=>setSecurityque(event.target.value)}>
+
+                <option value="select">Select Question</option>
+                <option value="Nickname">Nickname</option>
+                <option value="Favourite Teacher">Favourite Teacher</option>
+                <option value="Favourite Actor">Favourite Actor</option>
+                <option value="Favourite Sport">Favourite Sport</option>
+                
+          </select>
+        </div>
+       
+       
+        <div className="mb-3">
+          <label htmlFor="">Security Answer</label>
+          <input
+            onChange={(event) => {
+              // updating the state with user entered value
+              setSecurityans(event.target.value)
+            }}
+            className="form-control"
             type="text"
           />
         </div>
+       
+       
+       
+       
+       
         <div className="mb-3">
           <button onClick={signupUser} className="btn btn-success">
             Signup

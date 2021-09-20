@@ -8,7 +8,7 @@ import com.sunbeam.entities.Customer;
 
 public interface CustomerServices {
 
-	Customer findByEmail(String email);
+Customer findByEmail(String email);
 	Customer save(Customer cust);
 	Customer findById(int id);
 	List<Customer> findAll();

@@ -37,8 +37,8 @@ public class Customer implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dob;
-	//private String security;
-	
+	private String securityque;
+	private String securityans;
 	
 	public Customer() {
 		
@@ -50,7 +50,7 @@ public class Customer implements Serializable{
 	
 
 	public Customer(int id, String fname, String mname, String lname, String add1, String add2, String city,
-			String state, String country, String mobile, String email, String password, Date dob, String security) {
+			String state, String country, String mobile, String email, String password, Date dob,String securityque,String securityans) {
 	
 		this.id = id;
 		this.fname = fname;
@@ -65,7 +65,27 @@ public class Customer implements Serializable{
 		this.email = email;
 		this.password = password;
 		this.dob = dob;
-		//this.security = security;
+		this.securityque = securityque;
+		this.securityans = securityans;
+	}
+
+	public String getSecurityque() {
+		return securityque;
+	}
+	public void setSecurityque(String securityque) {
+		this.securityque = securityque;
+	}
+
+	public String getSecurityans() {
+		return securityans;
+	}
+
+
+
+
+
+	public void setSecurityans(String securityans) {
+		this.securityans = securityans;
 	}
 
 
