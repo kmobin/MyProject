@@ -179,8 +179,8 @@ public class ProductController {
 		return ResponseEntity.ok(prod);
 	}
 	
-	@PostMapping("/update")
-	public ResponseEntity<String> update(ProductDto pdto){
+	@PostMapping("/update/{id}")
+	public ResponseEntity<String> update(@PathVariable("id")int id,ProductDto pdto){
 			
 			
 			try {

@@ -7,8 +7,9 @@ import ProductId from "../common/ProductId";
 //import Image from "../image/icecream.jpg"
 const ProductSearchRow = ({ product }) => {
   const history = useHistory()
-  const editprod=()=>{
-     history.push("/Updateproductdetail")
+  const editprod=(pid)=>{
+    console.log(pid)
+   history.push(`/Updateproductdetail/${pid}`)
   }
   const deleteproduct=()=>
   {
@@ -40,7 +41,7 @@ const ProductSearchRow = ({ product }) => {
       <td>{product.reorderquantity}</td>
       <td>{product.sellprice}</td>
       <td>{product.alertmsg}</td>
-     <td>< button onClick={editprod} className="btn btn-success" >Update</button>
+     <td>< button onClick={editprod(product.pid)} className="btn btn-success" >Update</button>
         <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
       </td>
       <td><Link to="/admin">

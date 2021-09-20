@@ -10,6 +10,7 @@ const ProductMainGrp=(props)=>{
  
 const str = props.match.params.data
 const [product,setProduct] = useState([])
+
 // const str1;
 // const str2;
 useEffect(()=>{
@@ -26,10 +27,8 @@ const getProduct=()=>{
       const result = response.data
       console.log("--------------------------------") 
       console.log(result)
-        // setProduct(response.data)
-         ProductId.setProd(result[0].pid,result[0].pname,product.pimage,product.pmaingrp,product.psubgrp,product.ptype,
-           product.pbrand,product.currentstock,product.minstock,product.maxstock,product.reorderlevel,product.reorderquantity,product.sellprice,product.alertmsg)
-          ProductId.print()
+        setProduct(response.data)
+         
      })
      
 
@@ -61,12 +60,12 @@ const getProduct=()=>{
         </thead>
         <tbody>
           
-        {/* {
+         {
           product.map(p=>{
             
               return <ProductSearchRow product={p}/>
           })
-          } */}
+          } 
         </tbody>
       </table>
   </div>)

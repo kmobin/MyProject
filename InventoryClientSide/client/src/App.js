@@ -172,7 +172,7 @@ function App() {
          <Route path="/ProductSubGrp/:data" component={ProductSubGrp} />
          <Route path="/ProductNameGrp/:data" component={ProductNameGrp} />
          <Route path="/FindVendor" component={FindVendor} />
-         <Route path="/Updateproductdetail" component={UpdateProdetail}/> 
+         <Route path="/Updateproductdetail/:id" component={UpdateProdetail}/> 
          <Route path="/forgot" component={ForgotPassword}/>
          <Route path="/securityque" component={SecurityQue}/> 
         </Switch>

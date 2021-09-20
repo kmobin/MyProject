@@ -39,11 +39,11 @@ const[pid,setProductID]=useState(product.pid)
       data1.append('sellprice', sellprice)
       data1.append('alertmsg', alertmsg)
   
-  axios.post(url + '/product/save',data1).then(response=>{
+  axios.post(url + '/product/update/'+product.pid,data1).then(response=>{
       const result = response.data
       if(result != null)
       {  alert("Data Updated")
-      ProductId.setProduct(pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg)
+      ProductId.setProd(pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg)
              history.push('/product')
     }
     else{
