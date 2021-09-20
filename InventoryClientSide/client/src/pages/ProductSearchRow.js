@@ -21,29 +21,7 @@ const ProductSearchRow = ({ product }) => {
       console.log("-----------------")
       console.log(`pid : ${id}`)
       console.log("Hello")
-      axios.get(url + `/product/${id}`).then((response) => {
-
-        ProductId.setProd(response.data.pid,response.data.pname,response.data.pimage,response.data.pmaingrp,response.data.psubgrp,response.data.ptype,
-          response.data.pbrand,response.data.currentstock,response.data.minstock,response.data.maxstock,response.data.reorderlevel,response.data.reorderquantity,response.data.sellprice,response.data.alertmsg)
-          ProductId.print()
-          // const {pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg} = ProductId
-          // //console.log(pid)
-          //   const product={pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg}
-              // console.log(product)
-          //   //  return (
-            //    <div>
-            //     <UpdateProduct product={product}/>
-            //     </div>
-            //  )
-            history.push('/Updateproductdetail')
-            //history.push(`/UpdateProduct`)
-      })
-     
-        //<UpdateProduct product={product}/>
-     
-     
-
-      //history.push(`/UpdateProduct`)
+          history.push(`/Updateproductdetail/${id}`)
     }
   
   
@@ -68,7 +46,7 @@ const ProductSearchRow = ({ product }) => {
     <td>{product.reorderquantity}</td>
     <td>{product.sellprice}</td>
     <td>{product.alertmsg}</td>
-   <td><button  onClick={event=>{editprod(product.pid)}} className="btn btn-success" >Update</button></td>
+   <td><button  onClick={()=>{editprod(product.pid)}} className="btn btn-success" >Update</button></td>
      <td> <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
     </td>
     <td><Link to="/admin">

@@ -37,7 +37,7 @@ import CustomerRow from './pages/CustomerRow';
 import UpdateProdetail from './pages/UpdateProdetail';
 import ForgotPassword from './pages/ForgotPassword';
 import SecurityQue from './pages/SecurityQue';
-
+import Updatedetail from './pages/Updatedetail';
 
 function App() {
   const show1 = useSelector((state)=>state.show)
@@ -172,9 +172,10 @@ function App() {
          <Route path="/ProductSubGrp/:data" component={ProductSubGrp} />
          <Route path="/ProductNameGrp/:data" component={ProductNameGrp} />
          <Route path="/FindVendor" component={FindVendor} />
-         <Route path="/Updateproductdetail" component={UpdateProdetail}/> 
+         <Route path="/Updateproductdetail/:id" component={UpdateProdetail}/> 
          <Route path="/forgot" component={ForgotPassword}/>
          <Route path="/securityque" component={SecurityQue}/> 
+         <Route path="/Updatedetail" component={Updatedetail}/> 
         </Switch>
       </div>
     </BrowserRouter>

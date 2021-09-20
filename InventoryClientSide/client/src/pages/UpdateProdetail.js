@@ -4,33 +4,32 @@ import UpdateProduct from "./UpdateProduct";
 import { useHistory } from 'react-router';
 import axios from "axios"
 import { url } from "../common/constants";
-const UpdateProdetail=()=>{
+const UpdateProdetail=(props)=>{
   
-    console.log("------------------------------------")
-    console.log(ProductId.pid)    
-    const [pid,setPid] = useState(ProductId.pid)
-    const [pname,setProductName]=useState(ProductId.pname)
-    const [pimage,setProductImage]=useState(ProductId.pimage)
-    const [pmaingrp ,setProductMainGrp]=useState(ProductId.pmaingrp)
-    const [psubgrp ,setProductSubGrp]=useState(ProductId.psubgrp)
-    const [ptype,setProductType]=useState(ProductId.ptype)
-    const [pbrand,setProductBrand]=useState(ProductId.pbrand)
-    const [currentstock ,setCurrentStock]=useState(ProductId.currentstock)
-    const [minstock ,setMinStock]=useState(ProductId.minstock)
-    const [maxstock ,setMaxStock]=useState(ProductId.maxstock)
-    const [reorderlevel  ,setReorderLevel]=useState(ProductId.reorderlevel)
-    const [reorderquantity  ,setReorderQuantity]=useState(ProductId.reorderquantity)
-    const [sellprice,setSellPrice]=useState(ProductId.sellprice)
-    const [alertmsg,setAlertmsg]=useState(ProductId.alertmsg)
-  // const history = useHistory() 
-    
-  //const {pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg} = ProductId
- //console.log(pid)
-   const product={pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg}
-    //console.log(product)
-    return (
-       <UpdateProduct product={product}/>
-    )
+    const id = props.match.params.id
+    console.log(id)
+    const history = useHistory() 
+
+    useEffect(()=>
+    {
+        getData()
+    },[])
+
+    const getData = ()=>
+    {
+        axios.get(url + `/product/${id}`).then(response => {
+            ProductId.setProd(response.data.pid,response.data.pname,response.data.pimage,response.data.pmaingrp,response.data.psubgrp,response.data.ptype,
+              response.data.pbrand,response.data.currentstock,response.data.minstock,response.data.maxstock,response.data.reorderlevel,response.data.reorderquantity,response.data.sellprice,response.data.alertmsg)
+              ProductId.print()  
+              history.push('/Updatedetail')  
+          })
+          
+    }
+
+    return  (
+                <div>
+                </div>
+            )
 }
 
 export default UpdateProdetail

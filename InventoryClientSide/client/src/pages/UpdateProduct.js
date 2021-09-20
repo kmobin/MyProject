@@ -1,30 +1,32 @@
 import { useState } from 'react';
-import {  Link ,useHistory,useLocation} from 'react-router'
+import {  Link ,useHistory,useLocation} from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
 import ProductId from '../common/ProductId';
-const UpdateProduct=()=>{
+const UpdateProduct=({product})=>{
 
-    const [pid,setProductID]=useState(ProductId.pid)
-    const [pname,setProductName]=useState(ProductId.pname)
-    const [pimage,setProductImage]=useState(ProductId.pimage)
-    const [pmaingrp ,setProductMainGrp]=useState(ProductId.pmaingrp)
-    const [psubgrp ,setProductSubGrp]=useState(ProductId.psubgrp)
-    const [ptype,setProductType]=useState(ProductId.ptype)
-    const [pbrand,setProductBrand]=useState(ProductId.pbrand)
-    const [currentstock ,setCurrentStock]=useState(ProductId.currentstock)
-    const [minstock ,setMinStock]=useState(ProductId.minstock)
-    const [maxstock ,setMaxStock]=useState(ProductId.maxstock)
-    const [reorderlevel  ,setReorderLevel]=useState(ProductId.reorderlevel)
-    const [reorderquantity  ,setReorderQuantity]=useState(ProductId.reorderquantity)
-    const [sellprice,setSellPrice]=useState(ProductId.sellprice)
-    const [alertmsg,setAlertmsg]=useState(ProductId.alertmsg)
+    const [pid,setProductID]=useState(product.pid)
+    const [pname,setProductName]=useState(product.pname)
+    const [pimage,setProductImage]=useState(product.pimage)
+    const [pmaingrp ,setProductMainGrp]=useState(product.pmaingrp)
+    const [psubgrp ,setProductSubGrp]=useState(product.psubgrp)
+    const [ptype,setProductType]=useState(product.ptype)
+    const [pbrand,setProductBrand]=useState(product.pbrand)
+    const [currentstock ,setCurrentStock]=useState(product.currentstock)
+    const [minstock ,setMinStock]=useState(product.minstock)
+    const [maxstock ,setMaxStock]=useState(product.maxstock)
+    const [reorderlevel  ,setReorderLevel]=useState(product.reorderlevel)
+    const [reorderquantity  ,setReorderQuantity]=useState(product.reorderquantity)
+    const [sellprice,setSellPrice]=useState(product.sellprice)
+    const [alertmsg,setAlertmsg]=useState(product.alertmsg)
  
     //console.log(product)
 
   const history = useHistory()
+  const data1 = new FormData();
    const update = ()=>{
-    const data1 = new FormData()
+    ProductId.setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg)
+    data1.append('pid', pid)
       data1.append('pname', pname)
       data1.append('pimage', pimage)
       data1.append('pmaingrp', pmaingrp)
@@ -39,11 +41,11 @@ const UpdateProduct=()=>{
       data1.append('sellprice', sellprice)
       data1.append('alertmsg', alertmsg)
   
-  axios.post(url + '/product/save',data1).then(response=>{
+  axios.post(url + '/product/update',data1).then(response=>{
       const result = response.data
       if(result != null)
       {  alert("Data Updated")
-      ProductId.setProd(pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg)
+      //ProductId.setProd(pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg)
              history.push('/product')
     }
     else{
@@ -68,7 +70,7 @@ const UpdateProduct=()=>{
                <br />
                <div>
                <label>Product Image: </label>
-               <input type="file"  onChange={event=>{setProductImage(event.target.files[0])}} defaultValue={pimage} />
+               <input type="file"  onChange={event=>{setProductImage(event.target.files[0])}}  />
                </div>
                
                <br />
@@ -143,7 +145,9 @@ const UpdateProduct=()=>{
                <br /> 
                <button onClick={update}>Update</button> 
    
-   
+               <td><Link to="/admin">
+              <button className="btn btn-warning">Back</button>
+              </Link></td>
    
                
               </div>

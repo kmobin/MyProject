@@ -22,6 +22,12 @@ const deleteproduct=()=>
       history.push('/Product')
     })
   }
+  function editprod(id){
+    console.log("-----------------")
+    console.log(`pid : ${id}`)
+    console.log("Hello")
+        history.push(`/Updateproductdetail/${id}`)
+  }
   const history = useHistory()
 useEffect(()=>{
      
@@ -59,9 +65,7 @@ const getProduct=()=>{
       <td><strong>ReOrder<br></br>Quantity</strong><br></br>{product.reorderquantity}</td>
       <td><strong>Sell Price</strong><br></br>{product.sellprice}</td>
       <td><strong>Alert <br></br> Message</strong><br></br>{product.alertmsg}</td>
-    <td> <strong>Edit Option</strong>  <button onClick={() => {
-            history.push('/UpdateProduct', { product: product })
-          }} className="btn btn-success">Update</button></td>
+    <td> <strong>Edit Option</strong><button  onClick={()=>{editprod(product.pid)}} className="btn btn-success" >Update</button></td>
       <td>
         <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
       </td>
