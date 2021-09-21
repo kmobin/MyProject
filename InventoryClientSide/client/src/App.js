@@ -38,6 +38,7 @@ import UpdateProdetail from './pages/UpdateProdetail';
 import ForgotPassword from './pages/ForgotPassword';
 import SecurityQue from './pages/SecurityQue';
 import Updatedetail from './pages/Updatedetail';
+import UpdateVendor from './pages/UpdateVendor';
 
 function App() {
   const show1 = useSelector((state)=>state.show)
@@ -157,6 +158,7 @@ function App() {
     
           <Route path="/CustomerRow" component={CustomerRow}/>
           <Route path="/VendorSearchRow/:data" component={VendorSearchRow} />
+          <Route path="/Updatevendordetail/:id" component={UpdateVendor}/> 
           <Route path="/logout" component={Logout}/>
           <Route path="/search" component={Customer}/>
            <Route path="/profile" component={Profile}/>
@@ -176,6 +178,7 @@ function App() {
          <Route path="/forgot" component={ForgotPassword}/>
          <Route path="/securityque" component={SecurityQue}/> 
          <Route path="/Updatedetail" component={Updatedetail}/> 
+         <Route path="/Vendordetail" component={UpdateVendor}/>
         </Switch>
       </div>
     </BrowserRouter>

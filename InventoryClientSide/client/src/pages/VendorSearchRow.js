@@ -6,7 +6,7 @@ import axios from "axios"
 
 const VendorSearchRow = ({vendor}) => {
 
-  const deleteproduct=()=>
+  const deletevendor=()=>
   {
     axios.delete(url + '/vendor/delete/'+vendor.id).then((response) => {
       const result = response.data
@@ -18,6 +18,12 @@ const VendorSearchRow = ({vendor}) => {
   const history = useHistory()
      console.log(`VENDOR : ${vendor.id}`)
 
+     function editvendor(id){
+      console.log("vendor updated working")
+      console.log(`pid : ${id}`)
+      console.log("Hello")
+          history.push(`/Updatevendordetail/${id}`)
+    }
   return (
 <tr>
     <td>{vendor.id}</td> 
@@ -31,8 +37,11 @@ const VendorSearchRow = ({vendor}) => {
      <td>{vendor.vmobile}</td>
      <td>{vendor.vemail}</td>
      <td>
-        <button onClick={deleteproduct} className="btn btn-success" aria-disabled="true" >Delete</button>
+        <button onClick={deletevendor} className="btn btn-success"  >Delete</button>
       </td>
+      <td><button  onClick={()=>{editvendor(vendor.id)}} className="btn btn-success" >Update</button>
+      </td>
+      
   </tr>
   )
 

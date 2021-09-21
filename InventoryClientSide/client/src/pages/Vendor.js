@@ -29,6 +29,7 @@ const Vendor = () => {
             <Link to="/SearchVendor">
                 <button className="btn btn-success">Search Vendor</button>
             </Link>
+         
             <Link to="/SearchVendor">
                 <button className="btn btn-success">Delete Vendor</button>
             </Link>
