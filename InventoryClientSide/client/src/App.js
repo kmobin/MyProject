@@ -39,6 +39,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import SecurityQue from './pages/SecurityQue';
 import Updatedetail from './pages/Updatedetail';
 import UpdateVendor from './pages/UpdateVendor';
+import EditVendor from './pages/EditVendor';
 
 function App() {
   const show1 = useSelector((state)=>state.show)
@@ -179,6 +180,7 @@ function App() {
          <Route path="/securityque" component={SecurityQue}/> 
          <Route path="/Updatedetail" component={Updatedetail}/> 
          <Route path="/Vendordetail" component={UpdateVendor}/>
+         <Route path="/EditVendor" component={EditVendor}/>
         </Switch>
       </div>
     </BrowserRouter>

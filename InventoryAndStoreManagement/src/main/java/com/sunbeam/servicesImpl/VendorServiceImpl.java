@@ -50,6 +50,12 @@ public class VendorServiceImpl implements VendorService {
 		return false;
 	}
 
+	@Override
+	public Vendor findById(int id) {
+		return vendDao.findById(id);
+	
+	}
+
 }
 
 

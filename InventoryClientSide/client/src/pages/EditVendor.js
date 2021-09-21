@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
-import ProductId from '../common/ProductId';
+import VendorId from '../common/VendorId';
 import { vadd2, vcity, vcountry, vmobile, vstate } from '../common/VendorId';
 import { email } from '../common/CustId';
 const EditVendor = ({ vendor }) => {
@@ -23,7 +23,7 @@ const EditVendor = ({ vendor }) => {
     const history = useHistory()
     const data1 = new FormData();
     const update = () => {
-        ProductId.setProd(id, vname, vlname, vadd1, vadd2, vcity, vstate, vcountry, vmobile, email)
+        VendorId.setVendor(id, vname, vlname, vadd1, vadd2, vcity, vstate, vcountry, vmobile, email)
         data1.append('id', id)
         data1.append('vname', vname)
         data1.append('vlname', vlname)
@@ -64,17 +64,56 @@ const EditVendor = ({ vendor }) => {
            
 
             <div>
-                <label>Product lastName: </label>
+                <label>Vendor lastName: </label>
                 <input type="text" onChange={event => { setVendorlName(event.target.value) }} defaultValue={vlname} />
             </div>
             <br />
 
+            <div>
+                <label>Vendor Add1: </label>
+                <input type="text" onChange={event => { setVendorAdd1(event.target.value) }} defaultValue={vadd1} />
+            </div>
+            <br />
 
+            
+            <div>
+                <label>Vendor Add2: </label>
+                <input type="text" onChange={event => { setVendorAdd1(event.target.value) }} defaultValue={vadd2} />
+            </div>
+            <br />
 
-           
+            <div>
+                <label>Vendor City: </label>
+                <input type="text" onChange={event => { setVendorCity(event.target.value) }} defaultValue={vcity} />
+            </div>
+            <br />
+
+            <div>
+                <label>Vendor State: </label>
+                <input type="text" onChange={event => { setVendorState(event.target.value) }} defaultValue={vstate} />
+            </div>
+            <br />
+
+            <div>
+                <label>Vendor Country: </label>
+                <input type="text" onChange={event => { setVendorCountry(event.target.value) }} defaultValue={vcountry} />
+            </div>
+            <br />
+
+            <div>
+                <label>Vendor Mobile: </label>
+                <input type="text" onChange={event => { setVendorMobile(event.target.value) }} defaultValue={vmobile} />
+            </div>
+            <br />
+
+            <div>
+                <label>Vendor Email: </label>
+                <input type="text" onChange={event => { setVendorEmail(event.target.value) }} defaultValue={email} />
+            </div>
+            <br />
 
             <br />
-            <button onClick={update}>Update</button>
+            <button onClick={update} className="btn btn-success" >Update</button>
 
             <td><Link to="/admin">
                 <button className="btn btn-warning">Back</button>

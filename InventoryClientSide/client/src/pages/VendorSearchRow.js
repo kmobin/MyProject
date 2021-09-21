@@ -20,9 +20,9 @@ const VendorSearchRow = ({vendor}) => {
 
      function editvendor(id){
       console.log("vendor updated working")
-      console.log(`pid : ${id}`)
+      console.log(`id : ${id}`)
       console.log("Hello")
-          history.push(`/Updatevendordetail/${id}`)
+          history.push(`/UpdateVendor/${id}`)
     }
   return (
 <tr>
