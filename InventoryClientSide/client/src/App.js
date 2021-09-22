@@ -40,24 +40,23 @@ import SecurityQue from './pages/SecurityQue';
 import Updatedetail from './pages/Updatedetail';
 import UpdateVendor from './pages/UpdateVendor';
 import EditVendor from './pages/EditVendor';
-
+import NavbarAdmin from './Component/JS/navbarAdmin'
+import NavbarVisitor from './Component/JS/navbarVisitor'
+import NavbarCustomer from './Component/JS/navbarCustomer'
+// import { admin, customer } from './actions/NavbarAction';
+// import { setCustomer } from './actions/customerAction';
+// import { setAdmin } from './actions/adminAction';
 function App() {
-  const show1 = useSelector((state)=>state.show)
+  //const show1 = useSelector((state)=>state.show)
    const dispatch = useDispatch()
      const history = useHistory()
-  //  const logoutFun = ()=>{
-    
-  //   dispatch(show())
-  //   history.push("/Home")
-
-  //  }
-
-
-
+  
+     const login = useSelector(state => state.login)
   return (
     <div>
     <BrowserRouter>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    {(login === 'admin')?<NavbarAdmin/>:((login === 'customer')?<NavbarCustomer/>:((login==='visitor)'?<NavbarVisitor/>:<NavbarVisitor/>)))}
+      {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Inventory Management
@@ -78,9 +77,9 @@ function App() {
                <Link className="nav-link" to="/home">
                   Home
                 </Link>
-              </li>
+              </li> */}
 
-              {
+              {/* {
                show1?null:<li>
               <Link className="nav-link" to="/search"> 
                 Search
@@ -132,17 +131,18 @@ function App() {
                 Logout
               </Link>
             </li>
-             }
+             } */}
 
 
-             
+{/*              
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> */}
 
       <div className="container">
         <Switch>
+    
           <Route path="/home" component={Home} />
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />

@@ -5,6 +5,9 @@ import { url } from "../common/constants";
 import { useDispatch } from 'react-redux';
 import { show } from "../actions/CounterAction";
 import { hide } from './../actions/CounterAction';
+import { admin } from '../actions/NavbarAction';
+import { customer } from './../actions/NavbarAction';
+
 const Signin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -28,13 +31,17 @@ const Signin = () => {
           alert("Invalid Login");
         } else if (email == 'mobin@gmail.com' && password == 'mobin') {
           console.log(email);
-          dispatch(hide())
+         //dispatch(hide())
+         //dispatch(setAdmin(Admin))
+                    dispatch(admin())
           history.push('/admin')
         } else {
           console.log(email);
         
            alert("Successfully Login");
-           dispatch(hide())
+          // dispatch(hide())
+          //dispatch(setCustomer(Customer))
+          dispatch(customer())
           history.push(`/customer/${email}`)
         }
       })
