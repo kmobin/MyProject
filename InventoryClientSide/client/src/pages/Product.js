@@ -28,6 +28,7 @@ useEffect(() => {
         </Link>
  
         <Link to="/ProductSearch"><button className="btn btn-success">Search Product</button></Link> 
+        <Link to="/ProductReorder"><button className="btn btn-success">Reorder Product</button></Link> 
 
        <Link to="/admin">
      <button className="btn btn-warning">Back</button>
@@ -50,6 +51,7 @@ useEffect(() => {
             <th> ReOrder<br></br>Quantity</th>
             <th> Sell Price</th>
             <th>Alert <br></br> Message</th>
+            <th>Vendor Id </th>
           </tr>
         </thead>
         <tbody>

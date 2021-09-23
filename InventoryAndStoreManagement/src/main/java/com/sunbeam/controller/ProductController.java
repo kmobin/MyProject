@@ -125,7 +125,7 @@ public class ProductController {
 					prod.setReorderquantity(pdto.getReorderquantity());
 			    	prod.setSellprice(pdto.getSellprice());
 					prod.setAlertmsg(pdto.getAlertmsg());
-					
+					prod.setVid(pdto.getVid());
 					
 					
 					
@@ -179,6 +179,29 @@ public class ProductController {
 		return ResponseEntity.ok(prod);
 	}
 	
+	
+	@PostMapping("/all/pid")
+	public ResponseEntity<?> find(@RequestBody int[] data ){
+		List<Product> product = new ArrayList<Product>();
+	
+//		for (Product product : prod) {
+//			
+//			String str = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(product.getPimage()).toUriString();
+//			product.setPimage(str);
+//		}
+		
+		for (int i : data) {
+			System.out.println(i);
+			Product prod = prodService.findByPid(i);
+			String str = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(prod.getPimage()).toUriString();
+			prod.setPimage(str);
+			if(!product.contains(prod))
+				product.add(prod);
+		}
+		
+		return ResponseEntity.ok(product);
+	}
+	
 	@PostMapping("/update")
 	public ResponseEntity<String> update(ProductDto pdto){
 			
@@ -218,6 +241,7 @@ public class ProductController {
 						prod.setReorderquantity(pdto.getReorderquantity());
 				    	prod.setSellprice(pdto.getSellprice());
 						prod.setAlertmsg(pdto.getAlertmsg());
+						prod.setVid(pdto.getVid());
 	
 	                    prodService.save(prod);
 
@@ -227,27 +251,11 @@ public class ProductController {
 			
 			return ResponseEntity.ok("Updated SuccessFully");
 		}
-
-	@PostMapping("/all/pid")
-	public ResponseEntity<?> find(@RequestBody int[] data ){
-		List<Product> product = new ArrayList<Product>();
 	
-//		for (Product product : prod) {
-//			
-//			String str = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(product.getPimage()).toUriString();
-//			product.setPimage(str);
-//		}
-		
-		for (int i : data) {
-			System.out.println(i);
-			Product prod = prodService.findByPid(i);
-			String str = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(prod.getPimage()).toUriString();
-			prod.setPimage(str);
-			if(!product.contains(prod))
-				product.add(prod);
-		}
-		
-		return ResponseEntity.ok(product);
+	@GetMapping("/ReoderQuantity")
+	public ResponseEntity<List<Product>> findByQuantity(){
+		List<Product>prod=prodService.findByQuantity();
+		return ResponseEntity.ok(prod);
 	}
 	
 

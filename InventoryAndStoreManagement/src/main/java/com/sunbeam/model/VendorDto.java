@@ -22,13 +22,15 @@ package com.sunbeam.model;
 		private String vcountry;
 		private String vmobile;
 		private String email;
+		private String pname;
+		private double reorderquantity;
 
 		public VendorDto() {
 			
 		}
 		
 		public VendorDto(int id, String vname, String vlname, String vadd1, String vadd2, String vcity, String vstate,
-				String vcountry, String vmobile, String email) {
+				String vcountry, String vmobile, String email, String pname, double reorderquantity ) {
 			super();
 			this.id = id;
 			this.vname = vname;
@@ -40,6 +42,8 @@ package com.sunbeam.model;
 			this.vcountry = vcountry;
 			this.vmobile = vmobile;
 			this.email = email;
+			this.pname=pname;
+			this.reorderquantity=reorderquantity;
 		}
 
 		public int getId() {
@@ -122,12 +126,31 @@ package com.sunbeam.model;
 			this.email = vemail;
 		}
 
+		public String getPname() {
+			return pname;
+		}
+
+		public void setPname(String pname) {
+			this.pname = pname;
+		}
+
+		public double getReorderquantity() {
+			return reorderquantity;
+		}
+
+		public void setReorderquantity(double reorderquantity) {
+			this.reorderquantity = reorderquantity;
+		}
+
 		@Override
 		public String toString() {
-			return "Vendor [id=" + id + ", vname=" + vname + ", vlname=" + vlname + ", vadd1=" + vadd1 + ", vadd2=" + vadd2
-					+ ", vcity=" + vcity + ", vstate=" + vstate + ", vcountry=" + vcountry + ", vmobile=" + vmobile
-					+ ", vemail=" + email + "]";
+			return "VendorDto [id=" + id + ", vname=" + vname + ", vlname=" + vlname + ", vadd1=" + vadd1 + ", vadd2="
+					+ vadd2 + ", vcity=" + vcity + ", vstate=" + vstate + ", vcountry=" + vcountry + ", vmobile="
+					+ vmobile + ", email=" + email + ", pname=" + pname + ", reorderquantity=" + reorderquantity + "]";
 		}
+		
+
+		
 
 	}
 

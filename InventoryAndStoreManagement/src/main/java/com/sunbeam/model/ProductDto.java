@@ -20,7 +20,8 @@ public class ProductDto {
 	private double reorderquantity;
 	private double sellprice;
 	private String alertmsg;
-	
+	private Integer vid;
+	private String vemail;
 
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
@@ -28,7 +29,7 @@ public class ProductDto {
 
 	public ProductDto(int pid,String pname, MultipartFile pimage, String pmaingrp, String psubgrp, String ptype,
 			String pbrand, double currentstock, double minstock, double maxstock, double reorderlevel,
-			double reorderquantity, double sellprice, String alertmsg) {
+			double reorderquantity, double sellprice, String alertmsg , Integer vid ,String vemail  ) {
 		this.pid = pid;
 		this.pname = pname;
 		this.pimage = pimage;
@@ -43,6 +44,8 @@ public class ProductDto {
 		this.reorderquantity = reorderquantity;
 		this.sellprice = sellprice;
 		this.alertmsg = alertmsg;
+		this.vid=vid;
+		this.vemail=vemail;
 	}
 
 
@@ -160,13 +163,31 @@ public class ProductDto {
 		this.alertmsg = alertmsg;
 	}
 
+	public Integer getVid() {
+		return vid;
+	}
+
+	public void setVid(Integer vid) {
+		this.vid = vid;
+	}
+
+	public String getVemail() {
+		return vemail;
+	}
+
+	public void setVemail(String email) {
+		this.vemail = vemail;
+	}
+
 	@Override
 	public String toString() {
 		return "ProductDto [pid=" + pid + ", pname=" + pname + ", pimage=" + pimage + ", pmaingrp=" + pmaingrp
 				+ ", psubgrp=" + psubgrp + ", ptype=" + ptype + ", pbrand=" + pbrand + ", currentstock=" + currentstock
 				+ ", minstock=" + minstock + ", maxstock=" + maxstock + ", reorderlevel=" + reorderlevel
-				+ ", reorderquantity=" + reorderquantity + ", sellprice=" + sellprice + ", alertmsg=" + alertmsg + "]";
+				+ ", reorderquantity=" + reorderquantity + ", sellprice=" + sellprice + ", alertmsg=" + alertmsg
+				+ ", vid=" + vid + ", vemail=" + vemail + "]";
 	}
+
 	
 //	public static Product toEntity(ProductDto dto) {
 //		Product entity = new Product();

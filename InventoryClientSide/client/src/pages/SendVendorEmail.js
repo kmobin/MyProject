@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import VendorId from "../common/VendorId";
-import EditVendor from "./EditVendor";
-import { useHistory } from 'react-router';
 
-const Vendordetail=()=>{
+import ReorderEmail from "./ReorderEmail";
+import VendorId from "../common/VendorId";
+const SendVendorEmail=()=>{
   
-   
+     
     VendorId.print()  
     const [id,setId] = useState(VendorId.id)
     const [vname,setVendorName]=useState(VendorId.vname)
@@ -16,16 +15,16 @@ const Vendordetail=()=>{
     const [vstate ,setVendorState]=useState(VendorId.vstate)
     const [vcountry,setVendorCountry]=useState(VendorId.vcountry)
    const [vmobile ,setVendorMobile]=useState(VendorId.vmobile)
-    const [vemail ,setVendorVemail]=useState(VendorId.vemail)
+    const [vemail ,setVendorEmail]=useState(VendorId.vemail)
    
  
-   const vendor={id, vname, vlname, vadd1, vadd2, vcity, vstate, vcountry, vmobile,vemail}
+   const vendor={id, vname, vlname, vadd1, vadd2, vcity, vstate, vcountry, vmobile, vemail}
  
     return (
         <div>
-       <EditVendor vendor={vendor}/>
+       <ReorderEmail vendor={vendor}/>
        </div>
     )
 }
 
-export default Vendordetail
+export default SendVendorEmail

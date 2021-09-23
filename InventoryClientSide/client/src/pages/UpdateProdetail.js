@@ -19,7 +19,7 @@ const UpdateProdetail=(props)=>{
     {
         axios.get(url + `/product/${id}`).then(response => {
             ProductId.setProd(response.data.pid,response.data.pname,response.data.pimage,response.data.pmaingrp,response.data.psubgrp,response.data.ptype,
-              response.data.pbrand,response.data.currentstock,response.data.minstock,response.data.maxstock,response.data.reorderlevel,response.data.reorderquantity,response.data.sellprice,response.data.alertmsg)
+              response.data.pbrand,response.data.currentstock,response.data.minstock,response.data.maxstock,response.data.reorderlevel,response.data.reorderquantity,response.data.sellprice,response.data.alertmsg,response.data.vid)
               ProductId.print()  
               history.push('/Updatedetail')  
           })

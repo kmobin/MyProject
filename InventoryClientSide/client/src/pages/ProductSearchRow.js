@@ -46,6 +46,7 @@ const ProductSearchRow = ({ product }) => {
     <td>{product.reorderquantity}</td>
     <td>{product.sellprice}</td>
     <td>{product.alertmsg}</td>
+    <td>{product.vid}</td>
    <td><button  onClick={()=>{editprod(product.pid)}} className="btn btn-success" >Update</button></td>
      <td> <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
     </td>

@@ -10,7 +10,7 @@ class VendorId extends React.Component{
             console.log(`vname : ${this.vname}`)
         }
 
-        setVendor(id,vname,vlname,vadd1,vadd2,vcity,vstate,vcountry,vmobile,email){
+        setVendor(id,vname,vlname,vadd1,vadd2,vcity,vstate,vcountry,vmobile,vemail){
             this.id=id
             this.vname = vname
             this.vlname = vlname
@@ -20,7 +20,7 @@ class VendorId extends React.Component{
             this.vstate = vstate 
             this.vcountry = vcountry
              this.vmobile = vmobile
-             this.email = email
+             this.vemail = vemail
     
         }
         setId(id){
@@ -79,11 +79,11 @@ class VendorId extends React.Component{
         getVendorMobile(){
             return this.vmobile
         }
-        setVendorEmail(email){
-            this.email=email
+        setVendorVemail(vemail){
+            this.vemail=vemail
         }
-        getVendorEmail(){
-            return this.email
+        getVendorVemail(){
+            return this.vemail
         }
       
 }

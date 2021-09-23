@@ -19,13 +19,14 @@ const UpdateProduct=({product})=>{
     const [reorderquantity  ,setReorderQuantity]=useState(product.reorderquantity)
     const [sellprice,setSellPrice]=useState(product.sellprice)
     const [alertmsg,setAlertmsg]=useState(product.alertmsg)
+     const [vid,setVendorId]=useState(product.vid)
  
     //console.log(product)
 
   const history = useHistory()
   const data1 = new FormData();
    const update = ()=>{
-    ProductId.setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg)
+    ProductId.setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg,vid)
     data1.append('pid', pid)
       data1.append('pname', pname)
       data1.append('pimage', pimage)
@@ -40,6 +41,7 @@ const UpdateProduct=({product})=>{
       data1.append('reorderquantity', reorderquantity)
       data1.append('sellprice', sellprice)
       data1.append('alertmsg', alertmsg)
+      data1.append('vid', vid)
   
   axios.post(url + '/product/update',data1).then(response=>{
       const result = response.data
@@ -141,6 +143,12 @@ const UpdateProduct=({product})=>{
                <label>Alert Message : </label>
                <input type="text" onChange={event=>{setAlertmsg(event.target.value)}}  defaultValue={alertmsg} />
                </div>
+
+               <br />
+               <div>
+               <label>Vendor Id : </label>
+               <input type="text" onChange={event=>{setVendorId(event.target.value)}}  defaultValue={vid} />
+               </div>
                
                <br /> 
                <button onClick={update}>Update</button> 
@@ -149,8 +157,7 @@ const UpdateProduct=({product})=>{
               <button className="btn btn-warning">Back</button>
               </Link></td>
    
-               
-              </div>
+               </div>
     )
 }
 

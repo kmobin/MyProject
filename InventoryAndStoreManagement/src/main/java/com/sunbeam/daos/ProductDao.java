@@ -22,4 +22,7 @@ public interface ProductDao extends JpaRepository<Product, Integer>{
 	
 	@Query("SELECT DISTINCT(p.pname) FROM Product p")
 	List<String> findDistinctName();
+	
+	@Query("SELECT p FROM Product p where currentstock=10 ")
+	List<Product> findByQuantity();
 }

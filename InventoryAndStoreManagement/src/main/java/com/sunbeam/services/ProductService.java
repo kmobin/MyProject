@@ -18,4 +18,5 @@ public interface ProductService {
 	List<String> findDistinctName();
 	boolean deleteById(int pid);
 	Product save(Product prod);
+	List<Product> findByQuantity();
 }

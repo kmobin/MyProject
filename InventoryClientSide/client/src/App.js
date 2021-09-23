@@ -51,7 +51,10 @@ import Orders from './pages/Order';
 // import { setAdmin } from './actions/adminAction';
 import CallOrder from './pages/CallOrder';
 import GetOrderDetails from './pages/GetOrderDetails';
-
+import ProductReorder from './pages/ProductReorder';
+import ProductReorderdetail from './pages/ProductReorderdetail';
+import SendVendorEmail from './pages/SendVendorEmail';
+import ReorderEmail from './pages/ReorderEmail';
 
 
 
@@ -196,6 +199,10 @@ function App() {
           <Route path="/Order/:bid" component={Orders}/>
           <Route path="/callorder" component={CallOrder}/> 
           <Route path="/getorder" component={GetOrderDetails}/>
+          <Route path="/ProductReorder" component={ProductReorder}/>
+         <Route path="/ProductReorderdetail" component={ProductReorderdetail}/>
+         <Route path="/SendVendorEmail" component={SendVendorEmail}/>
+         <Route path="/ReorderEmail" component={ReorderEmail}/>
 
         </Switch>
       </div>

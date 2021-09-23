@@ -55,6 +55,7 @@ const getProduct=()=>{
             <th> ReOrder<br></br>Quantity</th>
             <th> Sell Price</th>
             <th>Alert <br></br> Message</th>
+            <th>VendorId</th>
             <th>Edit Option</th>
           </tr>
         </thead>

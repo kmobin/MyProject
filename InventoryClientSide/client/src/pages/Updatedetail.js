@@ -4,6 +4,7 @@ import UpdateProduct from "./UpdateProduct";
 import { useHistory } from 'react-router';
 import axios from "axios"
 import { url } from "../common/constants";
+import VendorId from "../common/VendorId";
 const Updatedetail=()=>{
   
     console.log("-----------------Product-------------------")
@@ -22,8 +23,9 @@ const Updatedetail=()=>{
     const [reorderquantity  ,setReorderQuantity]=useState(ProductId.reorderquantity)
     const [sellprice,setSellPrice]=useState(ProductId.sellprice)
     const [alertmsg,setAlertmsg]=useState(ProductId.alertmsg)
+    const [vid,setVendorId]=useState(ProductId.vid)
  
-   const product={pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg}
+   const product={pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg,vid}
   
     return (
         <div>

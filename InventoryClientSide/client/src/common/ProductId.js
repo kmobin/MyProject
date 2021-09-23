@@ -10,7 +10,7 @@ class ProductId extends React.Component{
             console.log(`pname : ${this.pname}`)
         }
 
-           setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg){
+           setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg,vid){
             this.pid=pid
             this.pname = pname
             this.pimage = pimage
@@ -25,6 +25,8 @@ class ProductId extends React.Component{
         this.reorderquantity = reorderquantity
          this.sellprice = sellprice
          this.alertmsg=alertmsg
+         this.vid=vid
+
         }
         setPid(pid){
             this.pid=pid
@@ -111,6 +113,12 @@ class ProductId extends React.Component{
         }
         getAlertmsg(){
             return this.alertmsg
+        }
+        setVendorId(vid){
+            this.vid=vid
+        }
+        getVendorId(){
+            return this.vid
         }
 }
 

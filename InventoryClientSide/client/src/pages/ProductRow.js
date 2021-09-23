@@ -20,6 +20,7 @@ const ProductRow = ({ product }) => {
       <td>{product.reorderquantity}</td>
       <td>{product.sellprice}</td>
       <td>{product.alertmsg}</td>
+      <td>{product.vid}</td>
       <td></td>
     </tr>
   )

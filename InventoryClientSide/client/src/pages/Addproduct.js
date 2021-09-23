@@ -16,6 +16,7 @@ const Addproduct=()=>{
     const[reorderquantity  ,setReorderQuantity]=useState('')
     const[sellprice,setSellPrice]=useState('')
     const[alertmsg,setAlertmsg]=useState('')
+    const[vid,setVendorId]=useState('')
 
     const history = useHistory()
 
@@ -34,6 +35,7 @@ const Addproduct=()=>{
       data.append('reorderquantity', reorderquantity)
       data.append('sellprice', sellprice)
       data.append('alertmsg', alertmsg)
+      data.append('vid', vid)
 
         axios.post(url + '/product/save ', data).then((response) => {
             const result = response.data
@@ -183,6 +185,17 @@ const Addproduct=()=>{
           <input
             onChange={(e) => {
                 setAlertmsg(e.target.value)
+            }}
+            type="text"
+            className="form-control"
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="">Vendor Id</label>
+          <input
+            onChange={(e) => {
+              setVendorId(e.target.value)
             }}
             type="text"
             className="form-control"

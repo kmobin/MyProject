@@ -29,7 +29,7 @@ private double reorderlevel;
 private double reorderquantity;
 private double sellprice;
 private String alertmsg;
-	
+private Integer vid;	
 
      public Product() {
     	 
@@ -38,7 +38,7 @@ private String alertmsg;
 
 	public Product(int pid, String pname, String pimage, String pmaingrp, String psubgrp, String ptype, String pbrand,
 			double currentstock, double minstock, double maxstock, double reorderlevel, double reorderquantity,
-			double sellprice, String alertmsg) {
+			double sellprice, String alertmsg,Integer vid) {
 		this.pid = pid;
 		this.pname = pname;
 		this.pimage = pimage;
@@ -53,6 +53,7 @@ private String alertmsg;
 		this.reorderquantity = reorderquantity;
 		this.sellprice = sellprice;
 		this.alertmsg = alertmsg;
+		this.vid=vid;
 	}
 
 
@@ -192,6 +193,16 @@ private String alertmsg;
 
 	public void setAlertmsg(String alertmsg) {
 		this.alertmsg = alertmsg;
+	}
+
+
+	public Integer getVid() {
+		return vid;
+	}
+
+
+	public void setVid(Integer vid) {
+		this.vid = vid;
 	}
 
 

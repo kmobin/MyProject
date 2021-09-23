@@ -21,6 +21,7 @@ import com.sunbeam.model.Response;
 import com.sunbeam.model.VendorDto;
 //import com.sunbeam.services.VendorService;
 import com.sunbeam.services.VendorService;
+import com.sunbeam.utils.ReorderService;
 
 @CrossOrigin
 
@@ -28,6 +29,10 @@ import com.sunbeam.services.VendorService;
 public class VendorController {
 	@Autowired
 	private VendorService vendService;
+	
+	@Autowired
+	private ReorderService reorderService;
+	
     @CrossOrigin
 	@GetMapping("/vendor/{email}")
 	public ResponseEntity<Vendor> findByEmail(@PathVariable("email")String email){
@@ -56,11 +61,12 @@ public class VendorController {
 		
 	}
 	
-	@GetMapping("/vendor/{id}")
-	public ResponseEntity<Vendor> findById(@PathVariable("id") int id){
-		
+	@GetMapping("/vendor/find/{id}")
+	public ResponseEntity<Vendor> getVendorById(@PathVariable("id") int id) 
+	{
+		System.out.println(id);
 		Vendor vendor = vendService.findById(id);
-		
+		System.out.println(vendor);
 		return ResponseEntity.ok(vendor);
 	}
 	
@@ -95,6 +101,13 @@ public class VendorController {
 			
 			return ResponseEntity.ok("Updated SuccessFully");
 		}
+	
+	@PostMapping("/vendor/reorder")
+	public ResponseEntity<String> forgot(@RequestBody VendorDto venddto) {
+		System.out.println(venddto.toString());
+		reorderService.sendSimpleReorderEmail(venddto.getVemail(),venddto.getPname(),venddto.getReorderquantity());
+		return ResponseEntity.ok("Success");
+	}
 }
 
 

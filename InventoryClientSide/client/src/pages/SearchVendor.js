@@ -7,7 +7,7 @@ import VendorSearchRow from "./VendorSearchRow";
 
 const SearchVendor = () => {
 
-  const [email, setVendorEmail] = useState('')
+  const [vemail, setVendorEmail] = useState('')
   const [vendor, setVendor] = useState('')
 
 
@@ -15,7 +15,7 @@ const SearchVendor = () => {
 
 
   const SearchvendorToDB = () => {
-    axios.get(url + `/vendor/${email}`).then((response) => {
+    axios.get(url + `/vendor/${vemail}`).then((response) => {
       const result = response.data
       console.log(result);
       setVendor(response.data);

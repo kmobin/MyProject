@@ -77,6 +77,10 @@ public class ProductServiceImpl implements ProductService {
 		return false;
 	}
 
+	@Override
+	public List<Product> findByQuantity() {
 	
+		return prodDao.findByQuantity();
+	}
 
 }

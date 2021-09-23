@@ -17,9 +17,9 @@ const UpdateVendor=(props)=>{
 
     const getData = ()=>
     {
-        axios.get(url + `/vendor/${id}`).then(response => {
+        axios.get(url + `/vendor/find/${id}`).then(response => {
             VendorId.setVendor(response.data.id,response.data.vname,response.data.vlname,response.data.pmaingrp,response.data.vadd1,response.data.vadd2,
-              response.data.vcity,response.data.vstate,response.data.vcountry,response.data.vmobile,response.data.email)
+              response.data.vcity,response.data.vstate,response.data.vcountry,response.data.vmobile,response.data.vemail)
               VendorId.print()  
               history.push('/Vendordetail')  
           })

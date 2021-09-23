@@ -16,14 +16,14 @@ const EditVendor = ({ vendor }) => {
     const [vstate, setVendorState] = useState(vendor.vstate)
     const [vcountry, setVendorCountry] = useState(vendor.vcountry)
     const [vmobile, setVendorMobile] = useState(vendor.vmobile)
-    const [email, setVendorEmail] = useState(vendor.email)
+    const [vemail, setVendorVemail] = useState(vendor.vemail)
 
 
 
     const history = useHistory()
     const data1 = new FormData();
     const update = () => {
-        VendorId.setVendor(id, vname, vlname, vadd1, vadd2, vcity, vstate, vcountry, vmobile, email)
+        VendorId.setVendor(id, vname, vlname, vadd1, vadd2, vcity, vstate, vcountry, vmobile, vemail)
         data1.append('id', id)
         data1.append('vname', vname)
         data1.append('vlname', vlname)
@@ -33,7 +33,7 @@ const EditVendor = ({ vendor }) => {
         data1.append('vstate', vstate)
         data1.append('vcountry', vcountry)
         data1.append('vmobile', vmobile)
-        data1.append('email', email)
+        data1.append('vemail', vemail)
 
 
         axios.post(url + '/vendor/update', data1).then(response => {
@@ -108,7 +108,7 @@ const EditVendor = ({ vendor }) => {
 
             <div>
                 <label>Vendor Email: </label>
-                <input type="text" onChange={event => { setVendorEmail(event.target.value) }} defaultValue={email} />
+                <input type="text" onChange={event => { setVendorVemail(event.target.value) }} defaultValue={vemail} />
             </div>
             <br />
 
