@@ -43,9 +43,19 @@ import EditVendor from './pages/EditVendor';
 import NavbarAdmin from './Component/JS/navbarAdmin'
 import NavbarVisitor from './Component/JS/navbarVisitor'
 import NavbarCustomer from './Component/JS/navbarCustomer'
+import Search from './pages/Search';
+import WishList from './pages/WishList';
+import Orders from './pages/Order';
 // import { admin, customer } from './actions/NavbarAction';
 // import { setCustomer } from './actions/customerAction';
 // import { setAdmin } from './actions/adminAction';
+import CallOrder from './pages/CallOrder';
+import GetOrderDetails from './pages/GetOrderDetails';
+
+
+
+
+
 function App() {
   //const show1 = useSelector((state)=>state.show)
    const dispatch = useDispatch()
@@ -161,7 +171,7 @@ function App() {
           <Route path="/VendorSearchRow/:data" component={VendorSearchRow} />
           <Route path="/Updatevendordetail/:id" component={UpdateVendor}/> 
           <Route path="/logout" component={Logout}/>
-          <Route path="/search" component={Customer}/>
+          <Route path="/search" component={Search}/>
            <Route path="/profile" component={Profile}/>
            <Route path="/Edit" component={Edit} /> 
            <Route path="/cart" component={Cart} /> 
@@ -181,6 +191,12 @@ function App() {
          <Route path="/Updatedetail" component={Updatedetail}/> 
          <Route path="/Vendordetail" component={UpdateVendor}/>
          <Route path="/EditVendor" component={EditVendor}/>
+         <Route path="/WishList" component={WishList}/>
+         
+          <Route path="/Order/:bid" component={Orders}/>
+          <Route path="/callorder" component={CallOrder}/> 
+          <Route path="/getorder" component={GetOrderDetails}/>
+
         </Switch>
       </div>
     </BrowserRouter>

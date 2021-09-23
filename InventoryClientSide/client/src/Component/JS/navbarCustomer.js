@@ -22,16 +22,21 @@ const NavbarCustomer = () =>
                         <Nav.Link onClick={()=> history.push("/profile")}>Profile</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link onClick={()=> history.push("/order")}>Order</Nav.Link>
+                        <Nav.Link onClick={()=> history.push("/getorder")}>Order</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link onClick={()=> history.push("/cart")}>Cart</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
+                        <Nav.Link onClick={()=> history.push("/WishList")}>Wish List</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
                         <Nav.Link onClick={()=> history.push("/logout")}>Log out</Nav.Link>
                     </Nav.Item>
+                    
                 </Nav>
             </>    
+              
             );
 }
 

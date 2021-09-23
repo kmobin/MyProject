@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.sun.mail.iap.Response;
 import com.sunbeam.entities.Cart;
 import com.sunbeam.entities.Product;
 import com.sunbeam.services.CartService;
@@ -72,4 +73,33 @@ public class CartController {
 		cartService.delete(cart);
 		
 	}
+	
+	@GetMapping("/total/{cid}")
+	public ResponseEntity<Double> total(@PathVariable("cid") int cid){
+		
+		List<Integer> pids = cartService.findByCid(cid);
+		
+//		List<Product> plist = new ArrayList<Product>();
+		
+		double total = 0;
+		
+		for (Integer pid : pids) {
+			
+			Product prod = prodService.findByPid(pid);
+//			String str = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(prod.getPimage()).toUriString();
+//			prod.setPimage(str);
+			total = total + prod.getSellprice();
+			
+		}
+		System.out.println(total);
+		return ResponseEntity.ok(total);
+	}
+	
+	@GetMapping("/find/{cid}")
+	public ResponseEntity<List<Integer>> find(@PathVariable("cid") int cid){
+		
+		List<Integer> list = cartService.findByCid(cid);
+		return ResponseEntity.ok(list);
+	}
+	
 }

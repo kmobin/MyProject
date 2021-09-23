@@ -227,4 +227,28 @@ public class ProductController {
 			
 			return ResponseEntity.ok("Updated SuccessFully");
 		}
+
+	@PostMapping("/all/pid")
+	public ResponseEntity<?> find(@RequestBody int[] data ){
+		List<Product> product = new ArrayList<Product>();
+	
+//		for (Product product : prod) {
+//			
+//			String str = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(product.getPimage()).toUriString();
+//			product.setPimage(str);
+//		}
+		
+		for (int i : data) {
+			System.out.println(i);
+			Product prod = prodService.findByPid(i);
+			String str = ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(prod.getPimage()).toUriString();
+			prod.setPimage(str);
+			if(!product.contains(prod))
+				product.add(prod);
+		}
+		
+		return ResponseEntity.ok(product);
+	}
+	
+
 }

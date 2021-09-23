@@ -7,14 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.sunbeam.entities.Cart;
+import com.sunbeam.entities.SaveForLater;
 
-public interface CartDao extends JpaRepository<Cart, Integer>{
-
-	@Query("SELECT c.pid FROM Cart c WHERE c.cid = :cid")
+public interface SaveForLaterDao extends JpaRepository<SaveForLater,Integer> {
+	@Query("SELECT s.pid FROM SaveForLater s WHERE s.cid = :cid")
 	List<Integer> findByCid(@Param("cid") int cid);
 	
-	Cart save(Cart cart);
+	SaveForLater save(SaveForLater sfl);
 //	@Query("DELETE FROM Cart c WHERE c.pid=:pid AND c.cid=:cid")
 //	void delete(@Param("pid") int pid,@Param("cid") int cid );
 	
-	}
+	
+}
