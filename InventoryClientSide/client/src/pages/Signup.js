@@ -2,6 +2,9 @@ import { useState } from "react"
 import axios from "axios"
 import { url } from "../common/constants";
 import { useHistory } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import TextField from '@material-ui/core/TextField';
+import Row from 'react-bootstrap/Row'
 const Signup=()=>{
     const[id,setId]=useState('');
     const [fname, setFirstName] = useState('')
@@ -49,145 +52,157 @@ console.log(data)
     }
   
     return (
-      <div>
-        <h1>Signup</h1>
-  
-        <div className="mb-3">
-          <label htmlFor="">First Name</label>
-          <input
+      <div id="SignUpPage">
+        <h1 id="Sign_up_here">Signup</h1>
+        <Form>
+        <Row className="mb-3">
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setFirstName(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="First Name" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Middle Name</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setMiddleName(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="Middle Name" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Last Name</label>
-          <input
+        </Form.Group>
+        </Row>
+        <Row className="mb-3">
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setLastName(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="Last Name" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Address 1</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setAddress1(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="Address 1" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Address 2</label>
-          <input
+        </Form.Group>
+        </Row>
+        <Row className="mb-3">
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setAddress2(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="Address 2" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">City</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setCity(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="City" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">State</label>
-          <input
+        </Form.Group>
+        </Row>
+        <Row className="mb-3">
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setState(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="State" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Country</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setCountry(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="Country" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Mobile</label>
-          <input
+        </Form.Group>
+        </Row>
+        <Row className="mb-3">
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setMobile(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="Mobile" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Email</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setEmail(event.target.value)
             }}
             className="form-control"
             type="email"
+            label="Email" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Password</label>
-          <input
+        </Form.Group>
+        </Row>
+        <Row className="mb-3">
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setPassword(event.target.value)
             }}
             className="form-control"
             type="password"
+            label="Password" variant="standard"
           />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="">Date of Birth</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <label>Date of birth</label>
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setDob(event.target.value)
             }}
             className="form-control"
             type="date"
+             variant="standard"
           />
-        </div>
+        </Form.Group>
+       </Row>
        
-       
-       
-        <div className="mb-3">
+       <Row className="mb-3">
+        <Form.Group className="mb-3">
           <label htmlFor="">Security Question</label>
           
           <select onChange={event=>setSecurityque(event.target.value)}>
@@ -199,30 +214,28 @@ console.log(data)
                 <option value="Favourite Sport">Favourite Sport</option>
                 
           </select>
-        </div>
+        </Form.Group>
        
        
-        <div className="mb-3">
-          <label htmlFor="">Security Answer</label>
-          <input
+        <Form.Group className="mb-3">
+          <TextField
             onChange={(event) => {
               // updating the state with user entered value
               setSecurityans(event.target.value)
             }}
             className="form-control"
             type="text"
+            label="Security Answer" variant="standard"
           />
-        </div>
-       
-       
-       
-       
-       
-        <div className="mb-3">
+        </Form.Group>
+
+        <Form.Group className="mb-3">
           <button onClick={signupUser} className="btn btn-success">
             Signup
           </button>
-        </div>
+        </Form.Group>
+        </Row>
+        </Form>
       </div>
     )
 }

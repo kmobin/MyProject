@@ -3,13 +3,16 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { url } from './../common/constants';
 import { useHistory } from 'react-router-dom';
-
-
+import Form from 'react-bootstrap/Form';
+import { customer } from './../actions/NavbarAction';
+import { useDispatch } from 'react-redux';
 const axios = require('axios')
 
 
 const ProductMain=()=>{
 
+  const dispatch = useDispatch()
+  dispatch(customer())
 
 
     const type = 'main'
@@ -45,7 +48,8 @@ useEffect(()=>{
    
 
   return(
-    <form onSubmit={handleSubmit} >
+    <Form onSubmit={handleSubmit} >
+      <h2>Select by Maingrp</h2>
    
       <select onChange={event=>{setData(event.target.value)}}>
       <option>Select Option</option>
@@ -58,7 +62,7 @@ useEffect(()=>{
       </select>
 
     <input type="submit" value="Search" />
-  </form>
+  </Form>
   )
 
 

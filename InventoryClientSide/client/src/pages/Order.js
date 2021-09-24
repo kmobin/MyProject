@@ -4,9 +4,14 @@ import { url } from './../common/constants';
 import { useState } from 'react';
 import OrderList from "./OrderList";
 import { useHistory } from 'react-router-dom';
+import { customer } from './../actions/NavbarAction';
+import { useDispatch } from 'react-redux';
 const axios = require('axios');
 
 const Orders = (props) =>{
+  const dispatch = useDispatch()
+  dispatch(customer())
+
 
   console.log(props)
   const bid = props.match.params.bid

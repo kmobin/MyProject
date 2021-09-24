@@ -37,9 +37,9 @@ const VendorSearchRow = ({vendor}) => {
      <td>{vendor.vmobile}</td>
      <td>{vendor.vemail}</td>
      <td>
-        <button onClick={deletevendor} className="btn btn-success"  >Delete</button>
+     <i class="fa fa-trash-o" onClick={deletevendor}style={{color: "red",fontSize:"25px"}}></i>
       </td>
-      <td><button  onClick={()=>{editvendor(vendor.id)}} className="btn btn-success" >Update</button>
+      <td><i class="fa fa-pencil-square-o" aria-hidden="true"  onClick={()=>{editvendor(vendor.id)}} style={{fontSize:"25px"}} ></i>
       </td>
       
   </tr>

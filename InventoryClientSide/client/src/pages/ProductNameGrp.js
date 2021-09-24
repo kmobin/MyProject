@@ -48,33 +48,51 @@ const getProduct=()=>{
     <table className="table table-striped">
       <thead>
         <tr>
-       <td><strong>ID</strong><br></br>{product.pid}</td>
-      <td><strong>Name</strong><br></br>{product.pname}</td>
-      <td><strong>Image</strong><br></br><img
+          <th>ID</th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>MainGrp</th>
+          <th>SubGrp</th>
+          <th>Type</th>
+          <th>Brand</th>
+          <th>Current</th>
+          <th>Minstock</th>
+          <th>Maxstock</th>
+          <th>Reorder<br></br>Level</th>
+          <th>ReOrder<br></br>Quantity</th>
+          <th>Sell Price</th>
+          <th>Alert</th>
+          <th>Vendor Id </th>
+          <th>Edit Option</th>
+          </tr>
+          </thead>
+       <tbody>
+       <td>{product.pid}</td>
+      <td>{product.pname}</td>
+      <td><img
           src={url +"D:/Upload/" +product.pimage}
           alt="" className="image"
         /></td>
-      <td><strong>MainGrp</strong><br></br>{product.pmaingrp}</td>
-      <td><strong>SubGrp</strong><br></br>{product.psubgrp}</td>
-      <td><strong>Type</strong><br></br>{product.ptype}</td>
-      <td><strong>Brand</strong><br></br>{product.pbrand}</td>
-      <td><strong>Current<br></br>stock </strong><br></br>{product.currentstock}</td>
-      <td><strong>Minstock</strong><br></br>{product.minstock}</td>
-      <td><strong>Maxstock</strong><br></br>{product.maxstock}</td>
-      <td><strong>Reorder<br></br>Level</strong><br></br>{product.reorderlevel}</td>
-      <td><strong>ReOrder<br></br>Quantity</strong><br></br>{product.reorderquantity}</td>
-      <td><strong>Sell Price</strong><br></br>{product.sellprice}</td>
-      <td><strong>Alert <br></br> Message</strong><br></br>{product.alertmsg}</td>
-      <td><strong>Vendor Id <br></br></strong><br></br>{product.vid}</td>
-    <td> <strong>Edit Option</strong><button  onClick={()=>{editprod(product.pid)}} className="btn btn-success" >Update</button></td>
+      <td>{product.pmaingrp}</td>
+      <td>{product.psubgrp}</td>
+      <td>{product.ptype}</td>
+      <td>{product.pbrand}</td>
+      <td>{product.currentstock}</td>
+      <td>{product.minstock}</td>
+      <td>{product.maxstock}</td>
+      <td>{product.reorderlevel}</td>
+      <td>{product.reorderquantity}</td>
+      <td>{product.sellprice}</td>
+      <td>{product.alertmsg}</td>
+      <td>{product.vid}</td>
+    <td> <i class="fa fa-pencil-square-o" aria-hidden="true" onClick={()=>{editprod(product.pid)}}  style={{fontSize:"25px"}}></i></td>
       <td>
-        <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
+      <i class="fa fa-trash-o" onClick={deleteproduct} style={{color: "red",fontSize:"25px"}}></i>
       </td>
       <td><Link to="/admin">
-     <button className="btn btn-warning">Back</button>
+      <i class="fa fa-arrow-circle-left" style={{fontSize:"25px"}}></i>
     </Link></td>
-        </tr>
-      </thead>
+    </tbody>
     </table>
 </div>)
 

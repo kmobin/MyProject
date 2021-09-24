@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
+import TextField from '@material-ui/core/TextField';
 const AddVendor = () => {
     const [vname, setVendorName] = useState('')
     const [vlname, setVendorLName] = useState('')
@@ -27,12 +28,13 @@ const AddVendor = () => {
     }
 
     return (
-        <div>
-            <h1 className="page-title">Add Vendor</h1>
+        <div id="SignUpPage">
+        <h1 id="Sign_up_here">Add Vendor</h1>
+        
 
             <div className="mb-3">
                 <label htmlFor="">Vendor Name</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorName(e.target.value)
                     }}
@@ -42,7 +44,7 @@ const AddVendor = () => {
             </div>
             <div className="mb-3">
                 <label htmlFor="">Vendor LastName</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorLName(e.target.value)
                     }}
@@ -52,7 +54,7 @@ const AddVendor = () => {
             </div>
             <div className="mb-3">
                 <label htmlFor="">Vendor Address1</label>
-                <input
+                <TextField
                     onChange={(e) => {
 
                         setVendorAddress1(e.target.value)
@@ -64,7 +66,7 @@ const AddVendor = () => {
 
             <div className="mb-3">
                 <label htmlFor="">Vendor Address2</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorAddress2(e.target.value)
                     }}
@@ -75,7 +77,7 @@ const AddVendor = () => {
 
             <div className="mb-3">
                 <label htmlFor="">Vendor City</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorCity(e.target.value)
                     }}
@@ -86,7 +88,7 @@ const AddVendor = () => {
 
             <div className="mb-3">
                 <label htmlFor="">Vendor State</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorState(e.target.value)
                     }}
@@ -97,7 +99,7 @@ const AddVendor = () => {
 
             <div className="mb-3">
                 <label htmlFor="">Vendor Country</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorCountry(e.target.value)
                     }}
@@ -108,7 +110,7 @@ const AddVendor = () => {
 
             <div className="mb-3">
                 <label htmlFor="">Vendor Mobile</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorMobile(e.target.value)
                     }}
@@ -119,7 +121,7 @@ const AddVendor = () => {
 
             <div className="mb-3">
                 <label htmlFor="">Vendor Email</label>
-                <input
+                <TextField
                     onChange={(e) => {
                         setVendorEmail(e.target.value)
                     }}

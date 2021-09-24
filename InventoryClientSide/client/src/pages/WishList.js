@@ -74,7 +74,7 @@ const WishList = ()=>{
     return(
 
         <div>
-         
+         <center><h1 id="Sign_up_here">My Wishlist</h1></center>
          <br />
          <br />
           <div className="row row-cols-1 row-cols-md-3 g-4">
@@ -95,8 +95,8 @@ const WishList = ()=>{
                                <p className="card-title"><strong>Name : </strong> {p.pname}</p>
                       <p className="card-text"><strong>Brand : </strong>{p.pbrand}</p>
                       <p className="card-text"><strong>Price : </strong>{p.sellprice}</p> </div>
-                      <button onClick={event=>{addCart(p.pid)}} class="btn btn-primary">Add To Cart</button><br/>
-                      <button onClick={event=>{deleteCart(p.pid)}} class="btn btn-primary">Remove</button>
+                      <button onClick={event=>{addCart(p.pid)}} class="btn btn-success">Add To Cart</button><br/>
+                      <button onClick={event=>{deleteCart(p.pid)}} class="btn btn-success">Remove</button>
                                 </div>
                                 </div>  
                             )              

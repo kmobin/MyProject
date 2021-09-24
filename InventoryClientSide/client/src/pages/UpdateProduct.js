@@ -3,6 +3,7 @@ import {  Link ,useHistory,useLocation} from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
 import ProductId from '../common/ProductId';
+import TextField from '@material-ui/core/TextField';
 const UpdateProduct=({product})=>{
 
     const [pid,setProductID]=useState(product.pid)
@@ -64,99 +65,102 @@ const UpdateProduct=({product})=>{
        
         <div></div>
         <br />
-            <div>
+        <div id="SignUpPage">
+        <h1 id="Sign_up_here">Update Product</h1>
+              <div>
                <label>Product Name : </label>
-               <input type="text" onChange={event=>{setProductName(event.target.value)}} defaultValue={pname} />
+               <TextField type="text" onChange={event=>{setProductName(event.target.value)}} defaultValue={pname} />
                </div>
                
                <br />
                <div>
                <label>Product Image: </label>
-               <input type="file"  onChange={event=>{setProductImage(event.target.files[0])}}  />
+               <TextField type="file"  onChange={event=>{setProductImage(event.target.files[0])}}  />
                </div>
                
                <br />
    
                <div>
                <label>Product Main grp : </label>
-               <input type="text" onChange={event=>{setProductMainGrp(event.target.value)}} defaultValue={pmaingrp} />
+               <TextField type="text" onChange={event=>{setProductMainGrp(event.target.value)}} defaultValue={pmaingrp} />
                </div>
                <br />
                 
    
                <div>
                <label>Product Sub grp : </label>
-               <input type="text" onChange={event=>{setProductSubGrp(event.target.value)}}  defaultValue={psubgrp} />
+               <TextField type="text" onChange={event=>{setProductSubGrp(event.target.value)}}  defaultValue={psubgrp} />
                </div>
                <br />
                
                <div>
                <label>Product Type : </label>
-               <input type="text" onChange={event=>{setProductType(event.target.value)}} defaultValue={ptype} />
+               <TextField type="text" onChange={event=>{setProductType(event.target.value)}} defaultValue={ptype} />
                </div>
                
                <br />
                <div>
                <label>Product Brand: </label>
-               <input type="text"  onChange={event=>{setProductBrand(event.target.value)}} defaultValue={pbrand} />
+               <TextField type="text"  onChange={event=>{setProductBrand(event.target.value)}} defaultValue={pbrand} />
                </div>
                <br />
                
                <div>
                <label>Product Current Stock : </label>
-               <input type="text" onChange={event=>{setCurrentStock(event.target.value)}}  defaultValue={currentstock} />
+               <TextField type="text" onChange={event=>{setCurrentStock(event.target.value)}}  defaultValue={currentstock} />
                </div>
                
                <br />
                <div>
                <label>Product Min Stock : </label>
-               <input type="text"  onChange={event=>{setMinStock(event.target.value)}} defaultValue={minstock} />
+               <TextField type="text"  onChange={event=>{setMinStock(event.target.value)}} defaultValue={minstock} />
                </div>
                
                <br />
    
                <div>
                <label>Product Max Stock : </label>
-               <input type="text" onChange={event=>{setMaxStock(event.target.value)}} defaultValue={maxstock} />
+               <TextField type="text" onChange={event=>{setMaxStock(event.target.value)}} defaultValue={maxstock} />
                </div>
                <br />
                
                <div>
                <label>Product Reorder Level: </label>
-               <input type="text" onChange={event=>{setReorderLevel(event.target.value)}} defaultValue={reorderlevel}></input>
+               <TextField type="text" onChange={event=>{setReorderLevel(event.target.value)}} defaultValue={reorderlevel}/>
                </div>
                <br />
                
                <div>
                <label>Product Reorder Quantity : </label>
-               <input type="text" onChange={event=>{setReorderQuantity(event.target.value)}}  defaultValue={reorderquantity} />
+               <TextField type="text" onChange={event=>{setReorderQuantity(event.target.value)}}  defaultValue={reorderquantity} />
                </div>
                
               <br />
                <div>
                <label>Product Sell Price : </label>
-               <input type="text" onChange={event=>{setSellPrice(event.target.value)}}  defaultValue={sellprice} />
+               <TextField type="text" onChange={event=>{setSellPrice(event.target.value)}}  defaultValue={sellprice} />
                </div>
                
                <br />
                <div>
                <label>Alert Message : </label>
-               <input type="text" onChange={event=>{setAlertmsg(event.target.value)}}  defaultValue={alertmsg} />
+               <TextField type="text" onChange={event=>{setAlertmsg(event.target.value)}}  defaultValue={alertmsg} />
                </div>
 
                <br />
                <div>
                <label>Vendor Id : </label>
-               <input type="text" onChange={event=>{setVendorId(event.target.value)}}  defaultValue={vid} />
+               <TextField type="text" onChange={event=>{setVendorId(event.target.value)}}  defaultValue={vid} />
                </div>
                
                <br /> 
-               <button onClick={update}>Update</button> 
+               <button onClick={update} className="btn btn-success">Update</button> 
    
-               <td><Link to="/admin">
+               <Link to="/admin">
               <button className="btn btn-warning">Back</button>
-              </Link></td>
+              </Link>
    
+               </div>
                </div>
     )
 }

@@ -7,6 +7,11 @@ import { show } from "../actions/CounterAction";
 import { hide } from './../actions/CounterAction';
 import { admin } from '../actions/NavbarAction';
 import { customer } from './../actions/NavbarAction';
+import { withStyles } from '@material-ui/core/styles';
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form';
+import TextField from '@material-ui/core/TextField';
+
 
 const Signin = () => {
   const [email, setEmail] = useState('')
@@ -49,35 +54,36 @@ const Signin = () => {
   }
 
   return (
-    <div className="container">
-      <h1>Sign in</h1>
-
-      <div className="mb-3">
-        <label>Email</label>
-        <input
+    <div id="LoginPage">
+      <h1 id="Signin">Sign In</h1>
+      <Form>
+      <Form.Group className="mb-3">
+        <TextField
           onChange={(event) => {
             setEmail(event.target.value)
           }}
           placeholder="enter your email"
           className="form-control"
           type="email"
+          label="Email" variant="outlined"
         />
-      </div>
-      <div className="mb-3">
-        <label>Password</label>
-        <input
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <TextField
           onChange={(event) => {
             setPassword(event.target.value)
           }}
           className="form-control"
           type="password"
+          label="Password" variant="outlined"
         />
-      </div>
-      <div className="mb-3">
+      </Form.Group>
+      </Form>
+   
         <button onClick={signinUser} className="btn btn-success">
           Signin
         </button>
-      </div>
+     
     </div>
   )
 }

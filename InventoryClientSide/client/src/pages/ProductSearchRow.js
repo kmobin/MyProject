@@ -47,11 +47,11 @@ const ProductSearchRow = ({ product }) => {
     <td>{product.sellprice}</td>
     <td>{product.alertmsg}</td>
     <td>{product.vid}</td>
-   <td><button  onClick={()=>{editprod(product.pid)}} className="btn btn-success" >Update</button></td>
-     <td> <button onClick={deleteproduct} className="btn btn-success"  >Delete</button>
+   <td><i class="fa fa-pencil-square-o" aria-hidden="true" onClick={()=>{editprod(product.pid)}} style={{fontSize:"25px"}}></i></td>
+     <td> <i class="fa fa-trash-o" onClick={deleteproduct}style={{color: "red",fontSize:"25px"}}></i>
     </td>
     <td><Link to="/admin">
-   <button className="btn btn-warning">Back</button>
+<i class="fa fa-arrow-circle-left" style={{fontSize:"25px"}}></i>
   </Link></td>
   </tr>
   )

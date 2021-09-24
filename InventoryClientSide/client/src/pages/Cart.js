@@ -198,6 +198,7 @@ const payment = ()=>{
 return(
 
 <div>
+<center></center><h1 id="Sign_up_here">Mycart</h1>
 <button onClick={payment} class="btn btn-primary">Place Order</button><br/>  <label>Total :{total} </label> 
 {/*  */}
  <br />

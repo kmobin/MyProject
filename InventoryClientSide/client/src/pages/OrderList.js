@@ -115,7 +115,9 @@ const cancel = (bid)=>{
 
 
 return(
+  
 <div className="card mb-3" >
+<center><h1 id="Sign_up_here">My Orders</h1></center>
 <div className="row g-0">
 
     <div className="col-md-4">

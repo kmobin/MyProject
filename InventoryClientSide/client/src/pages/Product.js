@@ -24,10 +24,10 @@ useEffect(() => {
         <center><h2 className="page-title">Product Info</h2></center>
         
         <Link to="/add-product">
-        <button className="btn btn-success">Add Product</button>
+        <button className="btn btn-addproduct">Add Product</button>
         </Link>
  
-        <Link to="/ProductSearch"><button className="btn btn-success">Search Product</button></Link> 
+        <Link to="/ProductSearch"><button className="btn btn-searchproduct">Search Product</button></Link> 
         <Link to="/ProductReorder"><button className="btn btn-success">Reorder Product</button></Link> 
 
        <Link to="/admin">

@@ -25,14 +25,14 @@ const Vendor = () => {
         <div>
             <center><h2 className="page-title">Vendor Info</h2></center>
             <Link to="/add-Vendor">
-                <button className="btn btn-success">Add Vendor</button>
+                <button className="btn btn-addproduct">Add Vendor</button>
             </Link>
             <Link to="/SearchVendor">
-                <button className="btn btn-success">Search Vendor</button>
+                <button className="btn btn-searchproduct">Search Vendor</button>
             </Link>
          
             <Link to="/SearchVendor">
-                <button className="btn btn-success">Delete Vendor</button>
+                <button className="btn btn-danger">Delete Vendor</button>
             </Link>
             <Link to="/admin">
                 <button className="btn btn-warning">Back</button>

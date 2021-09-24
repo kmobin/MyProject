@@ -5,8 +5,9 @@ import { useHistory } from 'react-router';
 import axios from "axios"
 import { url } from "../common/constants";
 const UpdateVendor=(props)=>{
-  
+
     const id = props.match.params.id
+    console.log("preet")
     console.log(id)
     const history = useHistory() 
 

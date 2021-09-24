@@ -24,7 +24,9 @@ const CustomerInfo = () => {
         <div>
             <center><h2 className="page-title">Customer Info</h2></center>
             
-
+            <Link to="/admin">
+                <button className="btn btn-warning">Back</button>
+            </Link>
             <table className="table table-striped">
                 <thead>
                     <tr>

@@ -18,7 +18,7 @@ const EditVendor = ({ vendor }) => {
     const [vmobile, setVendorMobile] = useState(vendor.vmobile)
     const [vemail, setVendorVemail] = useState(vendor.vemail)
 
-
+    console.log("preet")
 
     const history = useHistory()
     const data1 = new FormData();

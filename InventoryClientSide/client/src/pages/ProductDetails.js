@@ -2,10 +2,14 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { url } from './../common/constants';
 import ProductInfo from './ProductInfo';
+import { customer } from './../actions/NavbarAction';
+import { useDispatch } from 'react-redux';
 const axios = require('axios')
 
 const ProductDetails=(props)=>{
 
+  const dispatch = useDispatch()
+  dispatch(customer())
 console.log(props)
  
 const str = props.match.params.data

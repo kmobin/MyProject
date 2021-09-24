@@ -60,3 +60,184 @@ container{
  width: 100px;
  height: 100px;
 }
+
+.centered {
+  position: absolute;
+  top:-1500%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
+
+#LoginPage 
+{
+    margin-top: 40px;
+    width: 400px;
+    height: 300px;
+    box-shadow: 5px 5px 7px 5px rgba(58, 51, 51, 0.3);
+    margin-left: 50px;
+    border-radius: 8px;
+    padding: 17px;
+    background-color: white;
+}
+
+#Signin
+{
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #710cca;
+}
+
+.btn-success
+{
+  color:white;
+  background-color:#710cca ;
+}
+
+#Main
+{
+    height: fit-content;
+    padding-bottom: 60px;
+    background-color: rgb(255, 255, 255);
+}
+
+#SignUpPage 
+{
+  margin-top: 40px;
+    width: 550px;
+    height: 1200px;
+    box-shadow: 5px 5px 7px 5px rgba(58, 51, 51, 0.3);
+    margin-left: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 17px;
+}
+
+#Sign_up_here
+{
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #710cca;
+}
+
+#ForgotPage 
+{
+    margin-top: 40px;
+    width: 400px;
+    height: 300px;
+    box-shadow: 5px 5px 7px 5px rgba(58, 51, 51, 0.3);
+    margin-left: 50px;
+    border-radius: 8px;
+    padding: 17px;
+    background-color: white;
+}
+
+#ForgotPages
+{
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #710cca;
+    margin-bottom: 25px;
+}
+
+#ButtonBox
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+#Customer{
+  margin-top: 40px;
+  width: 400px;
+  height: 500px;
+  box-shadow: 5px 5px 7px 5px rgba(58, 51, 51, 0.3);
+  margin-left: 50px;
+  border-radius: 8px;
+  padding: 17px;
+  background-color: white;
+}
+
+#ProfilePage
+{
+    width: 700px;
+    height: 1200px;
+    box-shadow: 5px 5px 7px 5px rgba(58, 51, 51, 0.3);
+    margin-left: 430px;
+    background-color: rgb(255, 255, 255);
+    padding: 25px;
+}
+
+#ProfileName
+{
+    font-family: Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #710cca;
+}
+
+#ProfilePicture
+{
+    border: 0.5; 
+    border-Style: solid;
+    height: 230px;
+    width: 230px;
+    border-radius: 115px
+}
+
+#UpdatePage 
+{
+  margin-top: 40px;
+    width: 550px;
+    height: 800px;
+    box-shadow: 5px 5px 7px 5px rgba(58, 51, 51, 0.3);
+    margin-left: 50px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 17px;
+}
+
+#Event,#Create_Event_name,#Create_Event
+{
+    background-color: rgb(0, 89, 255);
+    padding-top: 20px;
+    padding-right: 20px;
+    color: white;
+    font-size: 50px;
+    border-radius: 20px;
+    height: 200px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 10px 10px 5px 2px rgba(153, 151, 151, 0.3);
+}
+
+#Create_Event
+{
+    background-color: rgb(140, 0, 153);
+}
+
+#Create_Event_name
+{
+  background-color: rgba(155, 30, 103, 0.856);
+}
+
+#admin{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-addproduct{
+  background-color:  rgba(155, 30, 103, 0.856);
+  color: white;
+}
+
+.btn-searchproduct
+{
+  background-color:  rgb(0, 89, 255);
+  color: white;
+}
+
+.btn-warning{
+  color: #282c34;
+  background-color: yellow;
+}

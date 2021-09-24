@@ -2,9 +2,13 @@
 import { url } from './../common/constants';
 import { useState } from 'react';
 import CustId from '../common/CustId';
+import { customer } from './../actions/NavbarAction';
+import { useDispatch } from 'react-redux';
 const axios = require('axios')
 
 const ProductInfo = ({product})=>{
+  const dispatch = useDispatch()
+  dispatch(customer())
 
 const [data,setData] = useState('')
 
@@ -34,7 +38,7 @@ const [data,setData] = useState('')
       <p className="card-title"><strong>Name : </strong> {product.pname}</p>
        <p className="card-text"><strong>Brand : </strong>{product.pbrand}</p>
        <p className="card-text"><strong>Price : </strong>{product.sellprice}</p> </div>
-       <button onClick={event=>{addCart(product.pid)}} class="btn btn-primary">Add Cart</button>
+       <button onClick={event=>{addCart(product.pid)}} class="btn btn-success">Add Cart</button>
     </div>
   </div>
   

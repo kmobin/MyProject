@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {  Link ,useHistory} from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
+import TextField from '@material-ui/core/TextField';
 const Addproduct=()=>{
     const[pname,setProductName]=useState('')
     const[pimage,setProductImage]=useState(undefined)
@@ -46,12 +47,12 @@ const Addproduct=()=>{
     }
 
     return (
-        <div>
-        <h1 className="page-title">Add Product</h1>
-  
+        <div id="SignUpPage">
+        <h1 id="Sign_up_here">Add Product</h1>
+        
         <div className="mb-3">
           <label htmlFor="">Product Name</label>
-          <input
+          <TextField
             onChange={(e) => {
               setProductName(e.target.value)
             }}
@@ -62,7 +63,7 @@ const Addproduct=()=>{
 
           <div className="mb-3">
         <label htmlFor="">Product Image</label>
-        <input
+        <TextField
           onChange={(e) => {
             setProductImage(e.target.files[0])
           }}
@@ -74,7 +75,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Product Main grp</label>
-          <input
+          <TextField
             onChange={(e) => {
               setProductMainGrp(e.target.value)
             }}
@@ -84,7 +85,7 @@ const Addproduct=()=>{
         </div>
         <div className="mb-3">
           <label htmlFor="">Product Sub grp</label>
-          <input
+          <TextField
             onChange={(e) => {
               setProductSubGrp(e.target.value)
             }}
@@ -95,7 +96,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Product Type</label>
-          <input
+          <TextField
             onChange={(e) => {
               setProductType(e.target.value)
             }}
@@ -106,7 +107,7 @@ const Addproduct=()=>{
             
         <div className="mb-3">
           <label htmlFor="">Product Brand</label>
-          <input
+          <TextField
             onChange={(e) => {
               setProductBrand(e.target.value)
             }}
@@ -117,7 +118,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Product Current Stock</label>
-          <input
+          <TextField
             onChange={(e) => {
               setCurrentStock(e.target.value)
             }}
@@ -128,7 +129,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Product Min Stock</label>
-          <input
+          <TextField
             onChange={(e) => {
               setMinStock(e.target.value)
             }}
@@ -138,7 +139,7 @@ const Addproduct=()=>{
         </div>
         <div className="mb-3">
           <label htmlFor="">Product Max Stock</label>
-          <input
+          <TextField
             onChange={(e) => {
                 setMaxStock(e.target.value)
             }}
@@ -149,7 +150,7 @@ const Addproduct=()=>{
         
         <div className="mb-3">
           <label htmlFor="">Product Reorder Level</label>
-          <input
+          <TextField
             onChange={(e) => {
                 setReorderLevel(e.target.value)
             }}
@@ -160,7 +161,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Product Reorder Quantity</label>
-          <input
+          <TextField
             onChange={(e) => {
                 setReorderQuantity(e.target.value)
             }}
@@ -171,7 +172,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Product Sell Price</label>
-          <input
+          <TextField
             onChange={(e) => {
                 setSellPrice(e.target.value)
             }}
@@ -182,7 +183,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Alert Message</label>
-          <input
+          <TextField
             onChange={(e) => {
                 setAlertmsg(e.target.value)
             }}
@@ -193,7 +194,7 @@ const Addproduct=()=>{
 
         <div className="mb-3">
           <label htmlFor="">Vendor Id</label>
-          <input
+          <TextField
             onChange={(e) => {
               setVendorId(e.target.value)
             }}
