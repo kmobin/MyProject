@@ -2,8 +2,6 @@ import CustId, { setEmail } from "../common/CustId"
 import { useState } from 'react';
 import { url } from './../common/constants';
 import { useHistory } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
-import TextField from '@material-ui/core/TextField';
 const axios = require('axios')
 
 
@@ -36,20 +34,17 @@ const forgot = ()=>{
 
 
 return(
-  <div id="ForgotPage">
-      <h1 id="ForgotPages">Forgot Password</h1>
-  <Form>
-  <Form.Group className="mb-3">
-     <div> 
-      <TextField type="email" onChange={event=>{setEmail(event.target.value)}}  label="Enter Your Email" variant="outlined"/></div>
-      </Form.Group>
-      <Form.Group className="mb-3">
+    
+        <div id="ForgotPage">
+       <h1 id="ForgotPages">Forgot Password</h1>
+     <div> <label>Enter Your Email</label><br />
+      <input type="email" onChange={event=>{setEmail(event.target.value)}} /></div><br />
+      <div className="mb-3">
         <button  onClick={forgot} className="btn btn-success">
           Check Email
         </button>
-      </Form.Group>
+      </div>
 
-    </Form>
     </div>
 )
 

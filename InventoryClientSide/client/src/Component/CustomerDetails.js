@@ -26,7 +26,9 @@ return (
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div id="ProfilePicture"></div>
+                                        <div  id="ProfilePicture">
+                                        <img id="image" src="./Images/profiletwo.png" width="158px" height="145px" alt="inventory Icon"/>
+                                        </div>
                                     </td>
                                     <td style={{color: 'red', padding: '20px'}}>
                                         <h1 id="ProfileName">{data.fname} {data.lname}</h1>

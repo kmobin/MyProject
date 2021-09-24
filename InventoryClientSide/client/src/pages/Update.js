@@ -4,7 +4,6 @@ import { useHistory } from 'react-router';
 import Customer from './customer';
 import { url } from '../common/constants';
 import Form from 'react-bootstrap/Form';
-import TextField from '@material-ui/core/TextField';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 const axios = require('axios')
 const Update = ({data})=>{
@@ -56,7 +55,7 @@ console.log(data)
       if(result != null)
       {  alert("Data Updated")
         CustId.setCust(id,fname,mname,lname,add1,add2,city,state,country,mobile,email,password,dob)
-         history.push('/profile')
+         history.push('/search')
     }
     else{
         alert("Data Not Updated")
@@ -70,63 +69,100 @@ console.log(data)
     return(
         <div>
        
+        <div></div>
         <br />
+            
             <div id="UpdatePage">
             <h1 id="Sign_up_here">Edit Profile</h1>
-            <Form>
-               <TextField type="text" onChange={event=>{setFname(event.target.value)}} defaultValue={fname} label="First Name" variant="standard" />
-
-               <br />
+          
+                <div>
+               <label>First Name : </label>
+               <input type="text" onChange={event=>{setFname(event.target.value)}} defaultValue={fname} />
+               </div>
                
-               <TextField type="text"  onChange={event=>{setMname(event.target.value)}} defaultValue={mname} label="Middle Name" variant="standard" />
-              
+               <br />
+               <div>
+               <label>Middle Name : </label>
+               <input type="text"  onChange={event=>{setMname(event.target.value)}} defaultValue={mname} />
+               </div>
                
                <br />
    
-               <TextField type="text" onChange={event=>{setLname(event.target.value)}} defaultValue={lname}   label="Last Name" variant="standard"/>
-               <br />
-                
-               <TextField type="text" onChange={event=>{setAdd1(event.target.value)}}  defaultValue={add1} label="Address 1" variant="standard"/>
-              
-               <br />
-               <TextField type="text" onChange={event=>{setAdd2(event.target.value)}} defaultValue={add2} label="Address 2" variant="standard"/>
-               
+               <div>
+               <label>Last Name : </label>
+               <input type="text" onChange={event=>{setLname(event.target.value)}}  defaultValue={lname} />
+               </div>
                <br />
                
-               <TextField type="text"  onChange={event=>{setCity(event.target.value)}} defaultValue={city}  label="City" variant="standard" />
+   
+               <div>
+               <label>Address 1 : </label>
+               <input type="text" onChange={event=>{setAdd1(event.target.value)}}  defaultValue={add1} />
+               </div>
                <br />
-     
-               <TextField type="text" onChange={event=>{setState(event.target.value)}}  defaultValue={state} label="State" variant="standard"/>
-                <br/>
-
-               <TextField type="text"  onChange={event=>{setCountry(event.target.value)}} defaultValue={country}label="Country" variant="standard"/>
+               
+               <div>
+               <label>Address 2 : </label>
+               <input type="text" onChange={event=>{setAdd2(event.target.value)}} defaultValue={add2} />
+               </div>
+               
                <br />
- 
-               <TextField type="text" onChange={event=>{setMobile(event.target.value)}} defaultValue={mobile} label="Mobile" variant="standard" />
+               <div>
+               <label>City : </label>
+               <input type="text"  onChange={event=>{setCity(event.target.value)}} defaultValue={city} />
+               </div>
                <br />
-      
-               <TextField type="email" onChange={event=>{setEmail(event.target.value)}} defaultValue={email} label="Email" variant="standard"/>
+               
+               <div>
+               <label>State : </label>
+               <input type="text" onChange={event=>{setState(event.target.value)}}  defaultValue={state} />
+               </div>
+               
                <br />
-
-               <TextField type="date" onChange={event=>{setDob(event.target.value)}}  defaultValue={dob}  variant="standard" />
+               <div>
+               <label>Country : </label>
+               <input type="text"  onChange={event=>{setCountry(event.target.value)}} defaultValue={country} />
+               </div>
+               
+               <br />
+   
+               <div>
+               <label>Mobile No. : </label>
+               <input type="text" onChange={event=>{setMobile(event.target.value)}} defaultValue={mobile} />
+               </div>
+               <br />
+               
+               <div>
+               <label>Email : </label>
+               <input type="email" onChange={event=>{setEmail(event.target.value)}} defaultValue={email}></input>
+               </div>
+               <br />
+               
+               <div>
+               <label>Date of Birth : </label>
+               <input type="date" onChange={event=>{setDob(event.target.value)}}  defaultValue={dob} />
+               </div>
+               
               <br />
-
-             
-               <TextField type="password" onChange={event=>{setPassword(event.target.value)}}  defaultValue={password} label="Password" variant="standard" />
+               <div>
+               <label>Password : </label>
+               <input type="password" onChange={event=>{setPassword(event.target.value)}}  defaultValue={password} />
+               </div>
+               
                <br /> 
-    
-               <Form.Group className="mb-3">
-                <br/>
+             
+               <br/>
                <button onClick={update} className="btn btn-success">Update</button> 
                <Link to="/profile">
                 <button className="btn btn-success">Back</button>
             </Link>
-            </Form.Group>
+             
    
-            </Form>
    
-               </div>
+               
               </div>
+              </div>
+
     )
 }
 
