@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {  Link ,useHistory,useLocation} from 'react-router-dom'
 import axios from "axios"
 import { url } from "../common/constants";
@@ -21,16 +21,15 @@ const UpdateProduct=({product})=>{
     const [sellprice,setSellPrice]=useState(product.sellprice)
     const [alertmsg,setAlertmsg]=useState(product.alertmsg)
      const [vid,setVendorId]=useState(product.vid)
- 
+    const [allvendors,setAllvendors] = useState([])
     //console.log(product)
 
   const history = useHistory()
   const data1 = new FormData();
    const update = ()=>{
-    ProductId.setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg,vid)
-    data1.append('pid', pid)
+    ProductId.setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg,vid)
+      data1.append('pid', pid)
       data1.append('pname', pname)
-      data1.append('pimage', pimage)
       data1.append('pmaingrp', pmaingrp)
       data1.append('psubgrp', psubgrp)
       data1.append('ptype', ptype)
@@ -43,7 +42,9 @@ const UpdateProduct=({product})=>{
       data1.append('sellprice', sellprice)
       data1.append('alertmsg', alertmsg)
       data1.append('vid', vid)
-  
+ 
+      console.log("**********************")
+  console.log(data1)
   axios.post(url + '/product/update',data1).then(response=>{
       const result = response.data
       if(result != null)
@@ -57,8 +58,23 @@ const UpdateProduct=({product})=>{
   })
 
 
+
    //       //console.log(data1)
  }
+
+
+useEffect(()=>{
+  getVendors()
+},[])
+
+const getVendors = ()=>{
+  axios.get(url+'/vendor/allvendors').then(response=>{
+    console.log(response.data)
+    setAllvendors(response.data)
+  })
+}
+
+
 
   return (
     <div>
@@ -75,7 +91,7 @@ const UpdateProduct=({product})=>{
                <br />
                <div>
                <label>Product Image: </label>
-               <TextField type="file"  onChange={event=>{setProductImage(event.target.files[0])}}  />
+               <TextField type="file"  onChange={event=>{data1.append(event.target.files[0])}}  />
                </div>
                
                <br />
@@ -150,7 +166,20 @@ const UpdateProduct=({product})=>{
                <br />
                <div>
                <label>Vendor Id : </label>
-               <TextField type="text" onChange={event=>{setVendorId(event.target.value)}}  defaultValue={vid} />
+               
+               <select onChange={event=>{setVendorId(event.target.value)}} >
+                 <option value={vid}>{vid}</option>
+                 {
+                   allvendors.map(v=>{
+                     if(v!=vid){
+                      return <option value={v}>{v}</option>
+                     }
+                   })
+                   }
+               </select>
+               
+               
+               {/* <TextField type="text" onChange={event=>{setVendorId(event.target.value)}}  defaultValue={vid} /> */}
                </div>
                
                <br /> 

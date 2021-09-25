@@ -13,5 +13,6 @@ public interface VendorService {
 	Vendor save(Vendor vend);
 	boolean deleteById(int id);
 	Vendor findById(int id);
+	List<Integer> AllVendors();
 	
 }

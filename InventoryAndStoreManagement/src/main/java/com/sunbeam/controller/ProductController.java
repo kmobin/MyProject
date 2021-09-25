@@ -205,7 +205,7 @@ public class ProductController {
 	@PostMapping("/update")
 	public ResponseEntity<String> update(ProductDto pdto){
 			
-			
+			System.out.println();
 			try {
 				String name ="";
 				Product prod = new Product();
@@ -257,6 +257,14 @@ public class ProductController {
 		List<Product>prod=prodService.findByQuantity();
 		return ResponseEntity.ok(prod);
 	}
+	@PostMapping("/product/productvendor")
+	public ResponseEntity<Product> productVendor(@RequestBody Product prod){
+		System.out.println(prod);
+		return ResponseEntity.ok(prod);
+	}
+	
+	
+	
 	
 
 }

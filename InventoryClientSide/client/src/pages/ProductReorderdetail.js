@@ -1,10 +1,18 @@
 import { url } from "../common/constants";
 import VendorId from "../common/VendorId";
 import { useHistory } from "react-router";
+import CustId from "../common/CustId";
+import ProductId from "../common/ProductId";
 const axios = require('axios')
 
 const ProductReorderdetail = ({ product }) => {
     const history = useHistory()
+
+          const {pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg,vid}=product
+            console.log("============")
+            ProductId.setProd(pid,pname,pimage,pmaingrp,psubgrp,ptype,pbrand,currentstock,minstock,maxstock,reorderlevel,reorderquantity,sellprice,alertmsg,vid)
+          
+        ProductId.print()
     const getVendor = (id) => {
 
         axios.get(url + `/vendor/find/${id}`).then(response => {

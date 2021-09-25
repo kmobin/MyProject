@@ -4,6 +4,7 @@ import axios from "axios"
 import { url } from "../common/constants";
 import ProductRow from './ProductRow';
 import ProductReorderdetail from './ProductReorderdetail';
+import ProductId from '../common/ProductId';
 
 const ProductReorder = () => {
     const [products, setProduct] = useState([])
@@ -18,6 +19,8 @@ const ProductReorder = () => {
             const result = response.data
             setProduct(result);
             console.log(result);
+   
+           
             console.log("Poonam");
         })
     }

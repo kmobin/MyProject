@@ -56,6 +56,12 @@ public class VendorServiceImpl implements VendorService {
 	
 	}
 
+	@Override
+	public List<Integer> AllVendors() {
+		
+		return vendDao.AllVendors();
+	}
+
 }
 
 

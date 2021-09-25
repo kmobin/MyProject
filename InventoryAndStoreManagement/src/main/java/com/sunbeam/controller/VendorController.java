@@ -102,10 +102,11 @@ public class VendorController {
 			return ResponseEntity.ok("Updated SuccessFully");
 		}
 	
-	@PostMapping("/vendor/reorder")
-	public ResponseEntity<String> forgot(@RequestBody VendorDto venddto) {
-		System.out.println(venddto.toString());
-		reorderService.sendSimpleReorderEmail(venddto.getVemail(),venddto.getPname(),venddto.getReorderquantity());
+	@PostMapping("/vendor/reorder/{str}")
+	public ResponseEntity<String> forgot(@PathVariable("str") String str,@RequestBody Product prod) {
+		System.out.println(prod.toString());
+		System.out.println(str);
+		reorderService.sendSimpleReorderEmail(str,prod.getPname(),prod.getReorderquantity());
 		return ResponseEntity.ok("Success");
 	}
 }

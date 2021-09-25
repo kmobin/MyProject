@@ -4,7 +4,7 @@ import ReorderEmail from "./ReorderEmail";
 import VendorId from "../common/VendorId";
 const SendVendorEmail=()=>{
   
-     
+    
     VendorId.print()  
     const [id,setId] = useState(VendorId.id)
     const [vname,setVendorName]=useState(VendorId.vname)
@@ -16,7 +16,9 @@ const SendVendorEmail=()=>{
     const [vcountry,setVendorCountry]=useState(VendorId.vcountry)
    const [vmobile ,setVendorMobile]=useState(VendorId.vmobile)
     const [vemail ,setVendorEmail]=useState(VendorId.vemail)
-   
+  
+  
+    
  
    const vendor={id, vname, vlname, vadd1, vadd2, vcity, vstate, vcountry, vmobile, vemail}
  
