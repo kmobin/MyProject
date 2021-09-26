@@ -109,6 +109,13 @@ public class VendorController {
 		reorderService.sendSimpleReorderEmail(str,prod.getPname(),prod.getReorderquantity());
 		return ResponseEntity.ok("Success");
 	}
+
+
+   @GetMapping("/vendor/allvendors")
+   public ResponseEntity<List<Integer>> AllVendors(){
+	   List<Integer> list = vendService.AllVendors();
+	   return ResponseEntity.ok(list);
+   }
 }
 
 
